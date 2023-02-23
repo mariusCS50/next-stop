@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NextStop</string>
+    <string name="zoom_in">+</string>
+    <string name="zoom_out">-</string>
+    <string name="map_description">This is the map implemented with the OSMDroid API</string>
+    <string name="zoom_in_btn_description">Zoom-In</string>
+    <string name="zoom_out_btn_description">Zoom-Out</string>
+    <string name="my_location_btn_description">My current location</string>\
+    <string name="settings_btn_description">Settings</string>
+    <string name="compass_btn_description">Compass</string>
+    <string name="filter_btn_description">Filter the Stations based on the Transport</string>
+</resources>

@@ -1,0 +1,2027 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Stația Poliție Str.Națională",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8019071444316,
+          47.2082364214225
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "Nota_info": "TV ",
+        "GlobalID": "c685ab82-82c0-4190-9178-5f7afa91132b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Stories E58",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7949403617552,
+          47.2163252812242
+        ]
+      },
+      "properties": {
+        "OBJECTID":2,
+        "Nota_info": null,
+        "GlobalID": "addd6c3d-0994-43c9-a664-7f8e741ef65a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Orange Str.Națională 18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8016486973277,
+          47.207664689823
+        ]
+      },
+      "properties": {
+        "OBJECTID":3,
+        "Nota_info": null,
+        "GlobalID": "b5ccbbbe-f224-4a01-8d1a-c3b0b720ece6"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Rompetrol Str.Ștefan cel Mare",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8014958166428,
+          47.1961167308738
+        ]
+      },
+      "properties": {
+        "OBJECTID": 4,
+        "Nota_info": null,
+        "GlobalID": "9d514de7-fa51-42af-a2b9-4d85173a2950"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația MRAO Str.Ștefan cel Mare",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.809206323526,
+          47.1844130601786
+        ]
+      },
+      "properties": {
+        "OBJECTID": 5,
+        "Nota_info": null,
+        "GlobalID": "cf48558f-8766-431e-9396-00d401ae418d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Biohim Str.Ștefan cel Mare",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8069749568693,
+          47.1726561202326
+        ]
+      },
+      "properties": {
+        "OBJECTID": 6,
+        "Nota_info": null,
+        "GlobalID": "36d81aba-bf00-43a2-bf96-777186ee695e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Stradela Stefan cel Mare",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8098159903464,
+          47.1793616784707
+        ]
+      },
+      "properties": {
+        "OBJECTID": 7,
+        "Nota_info": null,
+        "GlobalID": "520ddf5c-274f-4e51-a5af-ae8a61edea70"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Zamfir Arbore",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8113034252854,
+          47.1779545053579
+        ]
+      },
+      "properties": {
+        "OBJECTID": 8,
+        "Nota_info": null,
+        "GlobalID": "59ab82cb-bd88-4a69-96f1-048d04f913af"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Stradela Musatinilor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8092268491319,
+          47.1821245655144
+        ]
+      },
+      "properties": {
+        "OBJECTID": 9,
+        "Nota_info": null,
+        "GlobalID": "1ba31c51-fb7a-4634-b313-930fffb1bd7d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Zamfir Arbore 2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.816395267657,
+          47.1794837999715
+        ]
+      },
+      "properties": {
+        "OBJECTID": 10,
+        "Nota_info": null,
+        "GlobalID": "07bcdcaa-8610-4094-a712-1c4185dae39d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Burebista",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8153768467211,
+          47.1862282286984
+        ]
+      },
+      "properties": {
+        "OBJECTID": 11,
+        "Nota_info": null,
+        "GlobalID": "14e58f85-14e1-48b5-900d-e16836eabd19"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Petru Rares",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8194490150069,
+          47.1874350564797
+        ]
+      },
+      "properties": {
+        "OBJECTID": 12,
+        "Nota_info": null,
+        "GlobalID": "8fbe8203-e580-4871-b5a5-0dd041596a61"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Petru Rares 2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8101306899534,
+          47.1847400062745
+        ]
+      },
+      "properties": {
+        "OBJECTID": 13,
+        "Nota_info": null,
+        "GlobalID": "35800e01-4533-4af9-b7a3-aeb4676b7c24"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Aurel David",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8060821473596,
+          47.1917705481789
+        ]
+      },
+      "properties": {
+        "OBJECTID": 14,
+        "Nota_info": null,
+        "GlobalID": "775058fd-0592-435a-8fea-831bdf2b84e8"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Stefan cel Mare Pod",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8026288383544,
+          47.1956038098139
+        ]
+      },
+      "properties": {
+        "OBJECTID": 15,
+        "Nota_info": null,
+        "GlobalID": "f40ae245-9791-4f75-b076-ab3c4dadd226"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Unghiului",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7951615853687,
+          47.1944102178711
+        ]
+      },
+      "properties": {
+        "OBJECTID": 16,
+        "Nota_info": null,
+        "GlobalID": "f3b20889-a890-4824-b13f-acf7c5be9c64"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Arcasii lui Stefan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7943005339992,
+          47.1961535310966
+        ]
+      },
+      "properties": {
+        "OBJECTID": 17,
+        "Nota_info": null,
+        "GlobalID": "6654b7bf-33b2-4f42-a3c5-b20cc5897edb"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Lacului 28",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.796355924285,
+          47.1971078607518
+        ]
+      },
+      "properties": {
+        "OBJECTID": 18,
+        "Nota_info": null,
+        "GlobalID": "240518fa-f2b7-412a-b893-6b01f91a8c55"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Lacului 2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.795245433219,
+          47.1990660392462
+        ]
+      },
+      "properties": {
+        "OBJECTID": 19,
+        "Nota_info": null,
+        "GlobalID": "c58d2674-e139-4b7f-9ad4-f66cce84eeca"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Lacului Centrul Felicia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7971710627603,
+          47.1956783930826
+        ]
+      },
+      "properties": {
+        "OBJECTID": 20,
+        "Nota_info": null,
+        "GlobalID": "a076cba1-4522-4831-91ab-b0a0bc3cd3f4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Nationala Primarie",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7986648514833,
+          47.204949513443
+        ]
+      },
+      "properties": {
+        "OBJECTID": 21,
+        "Nota_info": null,
+        "GlobalID": "0aa8c5f2-68f1-4150-9d98-db3ee0a46bee"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Nationala L.T.V.Alecsandri",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8003837382537,
+          47.206544463975
+        ]
+      },
+      "properties": {
+        "OBJECTID": 22,
+        "Nota_info": null,
+        "GlobalID": "08ec6f28-1f5f-4de5-95a6-9744f38a3862"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Romana Bricone",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8074864216595,
+          47.2180662544406
+        ]
+      },
+      "properties": {
+        "OBJECTID": 23,
+        "Nota_info": null,
+        "GlobalID": "bb1fec6f-50cd-4d81-a954-1ba9cd2163b8"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Alexandru Boico",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7996884898345,
+          47.2163465790182
+        ]
+      },
+      "properties": {
+        "OBJECTID": 24,
+        "Nota_info": null,
+        "GlobalID": "4d2a99d1-3823-434c-a684-855a53c726f4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Parcul Central",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7933866742674,
+          47.2179586376287
+        ]
+      },
+      "properties": {
+        "OBJECTID": 25,
+        "Nota_info": null,
+        "GlobalID": "329c1ffd-51c1-4111-b397-6a561b15ebba"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Scoala auto UCA",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7924927571349,
+          47.2193429954193
+        ]
+      },
+      "properties": {
+        "OBJECTID": 26,
+        "Nota_info": null,
+        "GlobalID": "24a8e959-680f-45b6-89b4-fd7a9e470cea"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Titu Maiorescu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7907981428436,
+          47.2218921284749
+        ]
+      },
+      "properties": {
+        "OBJECTID": 27,
+        "Nota_info": null,
+        "GlobalID": "d24aee7d-70d5-492c-88f5-2e6a211f2374"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Oleg Ungureanu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7910762316111,
+          47.2249331061009
+        ]
+      },
+      "properties": {
+        "OBJECTID": 28,
+        "Nota_info": null,
+        "GlobalID": "513b185f-31a9-4e83-9b4b-e977e4641ee1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Oleg Ungureanu 2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7927202393109,
+          47.2259389507971
+        ]
+      },
+      "properties": {
+        "OBJECTID": 29,
+        "Nota_info": null,
+        "GlobalID": "21108041-e558-4c52-90c7-2f523a91a087"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Alexandru Plamadeala",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8087578575867,
+          47.2211805395519
+        ]
+      },
+      "properties": {
+        "OBJECTID": 30,
+        "Nota_info": null,
+        "GlobalID": "131e3b97-957a-4ef4-b4c9-3d46a632fdba"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Gop Stop",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7891195293441,
+          47.2247432630997
+        ]
+      },
+      "properties": {
+        "OBJECTID": 31,
+        "Nota_info": null,
+        "GlobalID": "43056e57-50cc-4457-bfdd-e35a65075e91"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Martisor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7862376872003,
+          47.2291533678147
+        ]
+      },
+      "properties": {
+        "OBJECTID": 32,
+        "Nota_info": null,
+        "GlobalID": "4ce4f5d7-52df-4a1a-9190-09263a400a24"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal Bemol",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.783411856811,
+          47.2335386947567
+        ]
+      },
+      "properties": {
+        "OBJECTID": 33,
+        "Nota_info": null,
+        "GlobalID": "1e35998b-e687-42f6-967a-ed75e8fa5769"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Stradela Decebal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7834203629584,
+          47.2328053250329
+        ]
+      },
+      "properties": {
+        "OBJECTID": 34,
+        "Nota_info": null,
+        "GlobalID": "1b915311-b84a-4162-900f-3c793ed2f62b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str Decebal 3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7795413549166,
+          47.2379787848572
+        ]
+      },
+      "properties": {
+        "OBJECTID": 35,
+        "Nota_info": null,
+        "GlobalID": "ea7fa9b1-14db-45bf-b2c6-8394caa12644"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal 3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7677473726531,
+          47.2482020889983
+        ]
+      },
+      "properties": {
+        "OBJECTID": 36,
+        "Nota_info": null,
+        "GlobalID": "90d367c6-245f-49ca-8fca-9c490fdfc06a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.I.L.Caragiale",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7670421780871,
+          47.243282027843
+        ]
+      },
+      "properties": {
+        "OBJECTID": 37,
+        "Nota_info": null,
+        "GlobalID": "21175c84-5862-4ea3-85cb-a4d739c21b1e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Alexandru cel Bun",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7834606874332,
+          47.2262175489378
+        ]
+      },
+      "properties": {
+        "OBJECTID": 38,
+        "Nota_info": null,
+        "GlobalID": "2e100723-f0fd-4487-b9e5-8b616f5d8835"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Oleg Ungureanu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7966087191891,
+          47.227539834117
+        ]
+      },
+      "properties": {
+        "OBJECTID": 39,
+        "Nota_info": null,
+        "GlobalID": "9b82cd3b-bc4f-4c58-924e-cb1aec66abfb"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str. Bogdan Petriceicu Hașdeu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8062497765848,
+          47.2135171716592
+        ]
+      },
+      "properties": {
+        "OBJECTID": 40,
+        "Nota_info": "TV ",
+        "GlobalID": "0634d5a0-dc47-43d8-adf5-f9f1018962c6"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Romana Spital",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8033258860991,
+          47.2144341531261
+        ]
+      },
+      "properties": {
+        "OBJECTID": 41,
+        "Nota_info": null,
+        "GlobalID": "f2fd2947-908c-459e-84cd-5a799ac33a0c"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Bogdan Petricescu Hasdeu 8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7994406832751,
+          47.216636267216
+        ]
+      },
+      "properties": {
+        "OBJECTID": 42,
+        "Nota_info": null,
+        "GlobalID": "e6f9fd2e-6df7-4900-a05a-9cd2b46f3b19"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Bogdan Petricescu Hasdeu 15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7977242605837,
+          47.217353816698
+        ]
+      },
+      "properties": {
+        "OBJECTID": 43,
+        "Nota_info": null,
+        "GlobalID": "a6e457d8-92d9-440f-9519-2272a9b4fbc6"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bernardazzi 10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7982232594526,
+          47.2188512521903
+        ]
+      },
+      "properties": {
+        "OBJECTID": 44,
+        "Nota_info": "TV ",
+        "GlobalID": "23fc9a67-d63e-45eb-b70f-4debf99518c3"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bernardazzi 10/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7981838270049,
+          47.2186670281331
+        ]
+      },
+      "properties": {
+        "OBJECTID": 45,
+        "Nota_info": "TV ",
+        "GlobalID": "f6ec4db3-0984-4d76-8696-3261e427af1a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bernardazzi 12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7996286674264,
+          47.2200590659447
+        ]
+      },
+      "properties": {
+        "OBJECTID": 46,
+        "Nota_info": null,
+        "GlobalID": "9a145534-76e2-415a-b429-6ccee71f4c80"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Ion Creanga 13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7994973139689,
+          47.2207546696904
+        ]
+      },
+      "properties": {
+        "OBJECTID": 47,
+        "Nota_info": null,
+        "GlobalID": "ff0a0ef7-7082-4e50-a344-701785144ae3"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Ion Creanga 13/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7986481365309,
+          47.2212775736085
+        ]
+      },
+      "properties": {
+        "OBJECTID": 48,
+        "Nota_info": null,
+        "GlobalID": "7907a4c8-4134-409b-ba25-5d714ce00ad8"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Ninele",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7972080356208,
+          47.2210221965559
+        ]
+      },
+      "properties": {
+        "OBJECTID": 49,
+        "Nota_info": null,
+        "GlobalID": "89e900df-446e-4705-bbc3-b00c762c28a5"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Ninele/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.797040051561,
+          47.2210295489986
+        ]
+      },
+      "properties": {
+        "OBJECTID": 50,
+        "Nota_info": null,
+        "GlobalID": "d76f8834-5809-4575-bac4-4ae00761734e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Ninele/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7957097921523,
+          47.2204426669929
+        ]
+      },
+      "properties": {
+        "OBJECTID": 51,
+        "Nota_info": "TV ",
+        "GlobalID": "dd8dc686-880b-408a-8230-dff857b94468"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Parcul Central/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7927742595005,
+          47.2194313476543
+        ]
+      },
+      "properties": {
+        "OBJECTID": 52,
+        "Nota_info": null,
+        "GlobalID": "c82dd527-b819-4c76-9070-c75bf4c16dcc"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Colegiul Agroindustrial",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7934354186513,
+          47.218423397746
+        ]
+      },
+      "properties": {
+        "OBJECTID": 53,
+        "Nota_info": null,
+        "GlobalID": "484b99ec-d24e-410f-adac-507e041fc5f3"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Comfort",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7963936670017,
+          47.2139849758994
+        ]
+      },
+      "properties": {
+        "OBJECTID": 54,
+        "Nota_info": null,
+        "GlobalID": "91feff8a-23d2-49f6-a566-04cd6295d31a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Alexandr Boico",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7962548862734,
+          47.2138477869526
+        ]
+      },
+      "properties": {
+        "OBJECTID": 55,
+        "Nota_info": null,
+        "GlobalID": "629f7912-cd2d-4471-b4ea-639a243de6fd"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Slavena",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7972372730884,
+          47.2123604079952
+        ]
+      },
+      "properties": {
+        "OBJECTID": 56,
+        "Nota_info": null,
+        "GlobalID": "30cd744d-9cab-4b39-8119-62a4c393546e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Internat",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.797666245586,
+          47.2121956369228
+        ]
+      },
+      "properties": {
+        "OBJECTID": 57,
+        "Nota_info": null,
+        "GlobalID": "39aaaa6b-e193-4d99-9408-4e3e25cbbde3"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal 12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8020484943416,
+          47.2093135904779
+        ]
+      },
+      "properties": {
+        "OBJECTID": 58,
+        "Nota_info": null,
+        "GlobalID": "0e2f9182-4ebf-44b3-84b3-bada75b093ce"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Scuar",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8006761587432,
+          47.2071151561529
+        ]
+      },
+      "properties": {
+        "OBJECTID": 59,
+        "Nota_info": null,
+        "GlobalID": "e1ddb76f-6243-4f18-ac8e-f08eec4bb58d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Primaria",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7984910670018,
+          47.2050553440815
+        ]
+      },
+      "properties": {
+        "OBJECTID": 60,
+        "Nota_info": null,
+        "GlobalID": "f36681c3-78b8-4a94-8110-0f8192fe86db"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația L.T.M.Eminescu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7963813807435,
+          47.2032621646136
+        ]
+      },
+      "properties": {
+        "OBJECTID": 61,
+        "Nota_info": null,
+        "GlobalID": "c6d2d179-91ae-482a-ae7d-8ea13e27e7b7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Apa Canal",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.796146509026,
+          47.2027279819071
+        ]
+      },
+      "properties": {
+        "OBJECTID": 62,
+        "Nota_info": null,
+        "GlobalID": "f4bfbed3-853b-4ecf-ab72-6a62f0759bb7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Palatul de cultura",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7950316737072,
+          47.2018808836002
+        ]
+      },
+      "properties": {
+        "OBJECTID": 63,
+        "Nota_info": null,
+        "GlobalID": "d709c2c2-2620-4599-853e-652949e86e70"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Suceava",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.792834556219,
+          47.1992021732706
+        ]
+      },
+      "properties": {
+        "OBJECTID": 64,
+        "Nota_info": null,
+        "GlobalID": "67c172d4-64f3-4c92-913d-54031d86702b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Unghiului/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7980673676148,
+          47.1949536832131
+        ]
+      },
+      "properties": {
+        "OBJECTID": 65,
+        "Nota_info": null,
+        "GlobalID": "3b5a9b5e-05b5-4ea5-ac8c-012042191a73"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Vento Str.Stefan cel Mare",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8009404161504,
+          47.1967765331612
+        ]
+      },
+      "properties": {
+        "OBJECTID": 66,
+        "Nota_info": null,
+        "GlobalID": "897cc124-f9c7-4ad4-adc8-2b37ff993f0a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Scoala profesionala/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8073501005185,
+          47.1900018646221
+        ]
+      },
+      "properties": {
+        "OBJECTID": 68,
+        "Nota_info": null,
+        "GlobalID": "b580212e-3d59-41ff-8b4a-1a2c1d0dc487"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Moldova",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.808338660556,
+          47.1882035421467
+        ]
+      },
+      "properties": {
+        "OBJECTID": 69,
+        "Nota_info": null,
+        "GlobalID": "f41cb9b4-bc20-4b26-b901-f5075636abda"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Petru Rares",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8125924008186,
+          47.1856213108299
+        ]
+      },
+      "properties": {
+        "OBJECTID": 70,
+        "Nota_info": null,
+        "GlobalID": "d832f906-9fba-43d9-b1dd-a0af96b9448d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Petru Rares/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.815438680457,
+          47.18652014186
+        ]
+      },
+      "properties": {
+        "OBJECTID": 71,
+        "Nota_info": null,
+        "GlobalID": "d0c458c2-2d81-4f64-9adf-18e601b6413b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Petru Rares/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.819286176497,
+          47.1875501741185
+        ]
+      },
+      "properties": {
+        "OBJECTID": 72,
+        "Nota_info": null,
+        "GlobalID": "8997a93b-e020-42a6-9932-a2a71c572dbc"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Petru Rares/5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.82516016941,
+          47.1892659274993
+        ]
+      },
+      "properties": {
+        "OBJECTID": 73,
+        "Nota_info": null,
+        "GlobalID": "9ba5e7a6-b499-4b51-bd2e-f5ef823d6d2e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Petru Rares/4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8227608213884,
+          47.18818763038
+        ]
+      },
+      "properties": {
+        "OBJECTID": 74,
+        "Nota_info": null,
+        "GlobalID": "6e0fc19d-8095-4eb3-b414-6fecc5a7c32c"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Linella Danuteni",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8097087162301,
+          47.1853333824816
+        ]
+      },
+      "properties": {
+        "OBJECTID": 75,
+        "Nota_info": null,
+        "GlobalID": "0a056a29-c029-45cf-a0c8-4022d6d033d0"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Moldova/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8089454509709,
+          47.1877528674662
+        ]
+      },
+      "properties": {
+        "OBJECTID": 76,
+        "Nota_info": "TV ",
+        "GlobalID": "88048bfb-8d47-49e3-8ff6-93a23249ce91"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.George Cosbuc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8032695985618,
+          47.1949676835878
+        ]
+      },
+      "properties": {
+        "OBJECTID": 77,
+        "Nota_info": null,
+        "GlobalID": "41973788-20b2-495b-a395-108182e5407f"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Magadan",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8007391755604,
+          47.2073456237537
+        ]
+      },
+      "properties": {
+        "OBJECTID": 78,
+        "Nota_info": null,
+        "GlobalID": "549afeb4-050b-4456-b23c-acd563322d46"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Oti's Burger",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7971835232916,
+          47.2090655629951
+        ]
+      },
+      "properties": {
+        "OBJECTID": 79,
+        "Nota_info": null,
+        "GlobalID": "2701c26f-7c04-4b08-82e6-721574b99719"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Policlinica",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7971310994083,
+          47.2095704335839
+        ]
+      },
+      "properties": {
+        "OBJECTID": 80,
+        "Nota_info": "TV ",
+        "GlobalID": "4a9eb559-6782-4f9e-bf1a-38b86cecd7fb"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Oleg Ungureanu/1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7873697027988,
+          47.2231540083642
+        ]
+      },
+      "properties": {
+        "OBJECTID": 81,
+        "Nota_info": null,
+        "GlobalID": "b3fcc8b0-a539-4011-9aea-3f340e4a4dce"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Alexandru cel Bun/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7782925933654,
+          47.2323531571601
+        ]
+      },
+      "properties": {
+        "OBJECTID": 82,
+        "Nota_info": null,
+        "GlobalID": "9f3e0c9a-268a-4a63-9cb1-584f61251cad"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Alexandru cel Bun/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7732805501372,
+          47.2369825865227
+        ]
+      },
+      "properties": {
+        "OBJECTID": 83,
+        "Nota_info": null,
+        "GlobalID": "38753383-cf07-4a92-ab2a-8c02e19bec29"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Dumitru Matcovschi",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7704443307317,
+          47.2398108398476
+        ]
+      },
+      "properties": {
+        "OBJECTID": 84,
+        "Nota_info": null,
+        "GlobalID": "63cdba91-c9c8-4f55-a562-1433432c3be2"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal/4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7743126030075,
+          47.2420709778902
+        ]
+      },
+      "properties": {
+        "OBJECTID": 85,
+        "Nota_info": null,
+        "GlobalID": "05aeab5a-c9f4-4d24-b1cc-0f333aeda3e4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal/5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7714354940869,
+          47.2450237019802
+        ]
+      },
+      "properties": {
+        "OBJECTID": 86,
+        "Nota_info": null,
+        "GlobalID": "6930e0dd-d7cf-4d43-91ff-cea9e41a868b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal/6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.769570263672,
+          47.2466350562575
+        ]
+      },
+      "properties": {
+        "OBJECTID": 87,
+        "Nota_info": null,
+        "GlobalID": "7df3bfa4-1863-4c79-ab24-b11670a6068e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Grigore Vieru",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7648540266837,
+          47.2468854118937
+        ]
+      },
+      "properties": {
+        "OBJECTID": 88,
+        "Nota_info": null,
+        "GlobalID": "9ba03164-93c1-4b5b-b0cf-87af20233184"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Mihai Eminescu/1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7677708662927,
+          47.2435742668381
+        ]
+      },
+      "properties": {
+        "OBJECTID": 89,
+        "Nota_info": null,
+        "GlobalID": "c5381a57-2168-4723-a430-c6fe87aacebc"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.M.Eminescu/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7695367322574,
+          47.2415461170852
+        ]
+      },
+      "properties": {
+        "OBJECTID": 90,
+        "Nota_info": null,
+        "GlobalID": "09e32190-18fb-4df2-b404-ac4aaf23f2f1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Alexandru cel Bun/0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7780059490431,
+          47.2323903836302
+        ]
+      },
+      "properties": {
+        "OBJECTID": 91,
+        "Nota_info": null,
+        "GlobalID": "886d40c7-da63-4b26-9c36-b7461c53e39b"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Oleg Ungureanu/6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.790708732625,
+          47.2248525163707
+        ]
+      },
+      "properties": {
+        "OBJECTID": 92,
+        "Nota_info": null,
+        "GlobalID": "95c5b1b7-781a-441c-921b-8ac361cfb34d"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Ion Creanga",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7942731542476,
+          47.2253813480931
+        ]
+      },
+      "properties": {
+        "OBJECTID": 93,
+        "Nota_info": null,
+        "GlobalID": "b6a1883e-e6f2-4987-bd51-1135eff045e6"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Ion Creanga/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7962945720461,
+          47.2234241757634
+        ]
+      },
+      "properties": {
+        "OBJECTID": 94,
+        "Nota_info": null,
+        "GlobalID": "3fff5f13-c747-4cef-9f30-eee3a1e49b4a"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Vasile Lupu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8027192834322,
+          47.2128444667022
+        ]
+      },
+      "properties": {
+        "OBJECTID": 95,
+        "Nota_info": null,
+        "GlobalID": "4471354d-5550-49b0-a89f-edcbd3f78340"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Vasile Lupu/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8032944342844,
+          47.2126646384525
+        ]
+      },
+      "properties": {
+        "OBJECTID": 96,
+        "Nota_info": null,
+        "GlobalID": "0dd54518-2ff1-4505-b886-11004ecd28db"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Stefan cel Mare/7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.810020683162,
+          47.1796406819024
+        ]
+      },
+      "properties": {
+        "OBJECTID": 97,
+        "Nota_info": null,
+        "GlobalID": "0ba4616f-68f1-433c-a7fd-0f37ca979d25"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Zamfir Arbore/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8115641837545,
+          47.1779624114847
+        ]
+      },
+      "properties": {
+        "OBJECTID": 98,
+        "Nota_info": null,
+        "GlobalID": "70f95e26-5d68-49b7-9e5b-6fa6fe73d185"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Zamfir Arbore/4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8126023065413,
+          47.1783210509169
+        ]
+      },
+      "properties": {
+        "OBJECTID": 99,
+        "Nota_info": null,
+        "GlobalID": "d3d0490e-05f0-4f09-bb51-24b9d84a0e28"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Alexandru boico/1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7997247988399,
+          47.2159210583963
+        ]
+      },
+      "properties": {
+        "OBJECTID": 100,
+        "Nota_info": null,
+        "GlobalID": "dfebd948-d096-45b6-974f-746a95851e32"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Alexandru Plamadeala",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.804933626116,
+          47.2192410023371
+        ]
+      },
+      "properties": {
+        "OBJECTID": 101,
+        "Nota_info": null,
+        "GlobalID": "7f4be61c-a152-41e1-8cb2-cd3316e12fe5"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Daiana Str.Romana",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7981384665746,
+          47.2106042827617
+        ]
+      },
+      "properties": {
+        "OBJECTID": 102,
+        "Nota_info": null,
+        "GlobalID": "c841b425-cff1-4c0a-ae98-06f1dbe77528"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.George Cosbuc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8051924693769,
+          47.1969779234994
+        ]
+      },
+      "properties": {
+        "OBJECTID": 103,
+        "Nota_info": null,
+        "GlobalID": "7a62167e-85cb-4a7c-b280-4a86ec4398b7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.George Cosbuc/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.809904867864,
+          47.1991912831963
+        ]
+      },
+      "properties": {
+        "OBJECTID": 104,
+        "Nota_info": null,
+        "GlobalID": "fe26cfd6-be52-4b0f-9110-00eeba89b582"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Haiducilor",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8145145996939,
+          47.2016110837115
+        ]
+      },
+      "properties": {
+        "OBJECTID": 105,
+        "Nota_info": null,
+        "GlobalID": "80b4c23a-c001-4bf5-9d9c-43826e0abef3"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.George Cosbuc/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8125900499275,
+          47.2040890068016
+        ]
+      },
+      "properties": {
+        "OBJECTID": 106,
+        "Nota_info": null,
+        "GlobalID": "93c0fdfa-90cf-46f5-8353-c285b69bd19c"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.George Cosbuc/4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8098633594097,
+          47.2007488206685
+        ]
+      },
+      "properties": {
+        "OBJECTID": 107,
+        "Nota_info": null,
+        "GlobalID": "60ad4b02-48f2-4244-a9fb-afb2f50420d0"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația George Cosbuc/5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8048551151568,
+          47.1971252024193
+        ]
+      },
+      "properties": {
+        "OBJECTID": 108,
+        "Nota_info": null,
+        "GlobalID": "aeddfe6f-0d43-42d4-80f9-d234b3b62b6f"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația K&rona",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8035174024262,
+          47.2097070990248
+        ]
+      },
+      "properties": {
+        "OBJECTID": 109,
+        "Nota_info": null,
+        "GlobalID": "c4d07aff-0e09-46be-acd0-095cb08096c8"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Serviciul Ambulanta",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8067640324406,
+          47.2124363126106
+        ]
+      },
+      "properties": {
+        "OBJECTID": 110,
+        "Nota_info": null,
+        "GlobalID": "2991ad3c-5331-443c-a8d0-8c9e4530bab4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bernardazzi/0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7959157030834,
+          47.2167603909234
+        ]
+      },
+      "properties": {
+        "OBJECTID": 111,
+        "Nota_info": null,
+        "GlobalID": "853079d5-87c9-41bc-a71f-1c26f444feeb"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bernardazzi/7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7965370560873,
+          47.2174766397133
+        ]
+      },
+      "properties": {
+        "OBJECTID": 112,
+        "Nota_info": null,
+        "GlobalID": "70b4ac73-8158-4205-b176-44b422a4000e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal 68",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7912033791564,
+          47.2219742058579
+        ]
+      },
+      "properties": {
+        "OBJECTID": 113,
+        "Nota_info": null,
+        "GlobalID": "99f3cfc3-0af7-46ef-a2d4-e8c64732aa36"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Mihail Sadoveanu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7861123102344,
+          47.2285565152283
+        ]
+      },
+      "properties": {
+        "OBJECTID": 114,
+        "Nota_info": null,
+        "GlobalID": "07549b0c-eca6-4c67-a476-f46835667a21"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Decebal/9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7790724109821,
+          47.2379087945708
+        ]
+      },
+      "properties": {
+        "OBJECTID": 115,
+        "Nota_info": null,
+        "GlobalID": "2431441f-1f3b-4003-b859-ae7595f7b533"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Industriala",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7742112550772,
+          47.2425692081193
+        ]
+      },
+      "properties": {
+        "OBJECTID": 116,
+        "Nota_info": null,
+        "GlobalID": "36bf9d78-223d-4dd1-954d-d9d7720f7ecc"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Bogdan Petriceicu Hasdeu",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8016911633862,
+          47.2154608593674
+        ]
+      },
+      "properties": {
+        "OBJECTID": 117,
+        "Nota_info": null,
+        "GlobalID": "d6902b80-8325-4b97-bc06-2cade3a318fd"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Nationala 27",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8052446552067,
+          47.2113075327561
+        ]
+      },
+      "properties": {
+        "OBJECTID": 118,
+        "Nota_info": "TV ",
+        "GlobalID": "b6e0a081-b518-4629-97d2-83bfb3c87fe9"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Nationala 27/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8047001279225,
+          47.2104954419367
+        ]
+      },
+      "properties": {
+        "OBJECTID": 119,
+        "Nota_info": null,
+        "GlobalID": "6060c38a-ef4b-4041-9158-715e222394d2"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Mitropolit Variaam",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8047805621747,
+          47.1928745816837
+        ]
+      },
+      "properties": {
+        "OBJECTID": 120,
+        "Nota_info": null,
+        "GlobalID": "df3e607b-e81d-422e-865b-4f15f91ba466"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Stefan cel Mare/9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8094591768206,
+          47.1823715033378
+        ]
+      },
+      "properties": {
+        "OBJECTID": 121,
+        "Nota_info": null,
+        "GlobalID": "6c7a6531-4e60-4ac2-a270-c68da77cb713"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Burebista",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8191859397826,
+          47.1805405813482
+        ]
+      },
+      "properties": {
+        "OBJECTID": 122,
+        "Nota_info": null,
+        "GlobalID": "80f91b72-77b5-491c-9030-1a57f3c293d8"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Burebista/2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8181075230639,
+          47.1819906046211
+        ]
+      },
+      "properties": {
+        "OBJECTID": 123,
+        "Nota_info": null,
+        "GlobalID": "856b6b49-44ed-42b1-b0bf-01c40aef0ebb"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Str.Burebista/3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8149020394827,
+          47.1861940840327
+        ]
+      },
+      "properties": {
+        "OBJECTID": 124,
+        "Nota_info": null,
+        "GlobalID": "29606984-22bf-4da1-8a99-9926989178ea"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Arena",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.7998499458371,
+          47.210539238252
+        ]
+      },
+      "properties": {
+        "OBJECTID": 125,
+        "Nota_info": "TV ",
+        "GlobalID": "7c9c6ab1-6296-4840-b0b8-2ab7fa58ce9e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Parcul Biohim",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.80941051598,
+          47.173356683784
+        ]
+      },
+      "properties": {
+        "OBJECTID": 126,
+        "Nota_info": "TV ",
+        "GlobalID": "afcf52a1-2038-4409-9e72-b1a7be8b7f0e"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Stația Petrom Str.Nationala",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8092335388858,
+          47.2194461127726
+        ]
+      },
+      "properties": {
+        "OBJECTID": 127,
+        "Nota_info": null,
+        "GlobalID": "ce991b45-cb2d-41ad-b02f-2e09214a68e1"
+      }
+    }
+  ]
+}

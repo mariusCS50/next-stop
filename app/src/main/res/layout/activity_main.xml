@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/AppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:enabled="true"
+        android:focusable="true"
+        android:contentDescription="@string/map_description" >
+
+    </org.osmdroid.views.MapView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <ImageButton
+            android:id="@+id/compass_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_menu_compass"
+            android:contentDescription="@string/compass_btn_description"
+            android:background="@drawable/zoom_in_button_shape"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <ImageButton
+            android:id="@+id/zoom_in_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/sharp_add_black_36"
+            android:contentDescription="@string/zoom_in_btn_description"
+            android:background="@drawable/zoom_in_button_shape"/>
+
+        <ImageButton
+            android:id="@+id/zoom_out_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/sharp_remove_black_36"
+            android:contentDescription="@string/zoom_out_btn_description"
+            android:background="@drawable/zoom_out_button_shape"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <ImageButton
+            android:id="@+id/back_to_my_location"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="100dp"
+            android:contentDescription="@string/my_location_btn_description"
+            app:srcCompat="@drawable/osm_ic_center_map"
+            android:background="@android:color/transparent"/>
+        <ImageButton
+            android:id="@+id/filter_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/filter_btn_description"
+            app:srcCompat="@android:drawable/ic_input_get" />
+    </LinearLayout>
+
+</FrameLayout>
