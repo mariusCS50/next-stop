@@ -31,7 +31,7 @@
             android:layout_height="48dp"
             app:srcCompat="@drawable/ic_menu_compass"
             android:contentDescription="@string/compass_btn_description"
-            android:background="@drawable/zoom_in_button_shape"/>
+            android:background="@android:color/transparent"/>
     </LinearLayout>
 
     <LinearLayout
