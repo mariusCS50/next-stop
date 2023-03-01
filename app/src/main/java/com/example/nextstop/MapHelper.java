@@ -1,19 +1,19 @@
 package com.example.nextstop;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.core.content.res.ResourcesCompat;
 
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 
 import org.osmdroid.api.IMapController;
@@ -24,6 +24,7 @@ import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,9 +60,6 @@ public class MapHelper {
         for (Location location : locationItems.locations) {
             Marker marker = new Marker(map);
             marker.setTitle(location.id);
-            marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
-            Drawable markerIcon = ResourcesCompat.getDrawable(context.getResources(), org.osmdroid.library.R.drawable.marker_default, context.getTheme());
-            marker.setIcon(markerIcon);
 
             marker.setPosition(new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0)));
             map.getOverlays().add(marker);
@@ -70,7 +68,17 @@ public class MapHelper {
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     map.getController().animateTo(marker.getPosition());
-                    Toast.makeText(context, marker.getTitle(), Toast.LENGTH_LONG).show();
+
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetDialogTheme);
+                    View bottomSheetView = LayoutInflater.from(context.getApplicationContext())
+                            .inflate(R.layout.bottom_sheet_layout,
+                                    ((MainActivity)context).findViewById(R.id.bottomSheetContainer));
+                    TextView textView = (TextView) bottomSheetView.findViewById(R.id.stationName);
+                    textView.setText(marker.getTitle());
+
+                    bottomSheetDialog.getWindow().setDimAmount(0);
+                    bottomSheetDialog.setContentView(bottomSheetView);
+                    bottomSheetDialog.show();
                     return true;
                 }
             });
