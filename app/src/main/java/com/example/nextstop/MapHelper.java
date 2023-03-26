@@ -1,19 +1,28 @@
 package com.example.nextstop;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 
 import org.osmdroid.api.IMapController;
@@ -70,7 +79,16 @@ public class MapHelper {
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     map.getController().animateTo(marker.getPosition());
-                    Toast.makeText(context, marker.getTitle(), Toast.LENGTH_LONG).show();
+
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetTheme);
+                    View bottomSheetView = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.bottom_sheet_layout, null);
+
+                    TextView textView = (TextView) bottomSheetView.findViewById(R.id.stationName);
+                    textView.setText(marker.getTitle());
+
+                    bottomSheetDialog.setContentView(bottomSheetView);
+                    bottomSheetDialog.getWindow().setDimAmount(0);
+                    bottomSheetDialog.show();
                     return true;
                 }
             });
