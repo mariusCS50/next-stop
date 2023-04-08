@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 
 import org.osmdroid.api.IMapController;
+import org.osmdroid.tileprovider.modules.MapTileFileArchiveProvider;
+import org.osmdroid.tileprovider.modules.OfflineTileProvider;
+import org.osmdroid.tileprovider.tilesource.ITileSource;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.tileprovider.tilesource.XYTileSource;
+import org.osmdroid.tileprovider.util.SimpleRegisterReceiver;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
@@ -34,6 +40,7 @@ import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -50,7 +57,7 @@ public class MapHelper {
 
     protected String readLocationsJson() {
 
-        try (InputStream inputStream = context.getAssets().open("stations_location.json")) {
+        try (InputStream inputStream = context.getAssets().open("stations_locations.json")) {
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
@@ -83,8 +90,10 @@ public class MapHelper {
                     BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetTheme);
                     View bottomSheetView = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.bottom_sheet_layout, null);
 
-                    TextView textView = (TextView) bottomSheetView.findViewById(R.id.stationName);
-                    textView.setText(marker.getTitle());
+                    TextView stationNameTextView = (TextView) bottomSheetView.findViewById(R.id.stationName);
+                    String stationName = marker.getTitle();
+
+                    stationNameTextView.setText(stationName);
 
                     bottomSheetDialog.setContentView(bottomSheetView);
                     bottomSheetDialog.getWindow().setDimAmount(0);

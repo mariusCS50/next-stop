@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bottom_sheet_design">
+    android:background="@drawable/bottom_sheet_design"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/stationName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Default"
-        android:textSize="25dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
         android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Directions"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:background="@drawable/dir_button_style"/>
+
 </LinearLayout>
