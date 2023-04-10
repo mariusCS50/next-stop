@@ -1,46 +1,29 @@
 package com.example.nextstop;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
-
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
-
 import org.osmdroid.api.IMapController;
-import org.osmdroid.tileprovider.modules.MapTileFileArchiveProvider;
-import org.osmdroid.tileprovider.modules.OfflineTileProvider;
-import org.osmdroid.tileprovider.tilesource.ITileSource;
+import org.osmdroid.events.MapEventsReceiver;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.tileprovider.tilesource.XYTileSource;
-import org.osmdroid.tileprovider.util.SimpleRegisterReceiver;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -49,6 +32,8 @@ public class MapHelper {
     private final MapView map;
     private IMapController mapController;
     private ImageButton myLocationButton;
+    private LinearLayout bottomSheetLayout;
+    BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
 
     public MapHelper(Context context, MapView map) {
         this.context = context;
@@ -86,18 +71,9 @@ public class MapHelper {
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     map.getController().animateTo(marker.getPosition());
-
-                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetTheme);
-                    View bottomSheetView = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.bottom_sheet_layout, null);
-
-                    TextView stationNameTextView = (TextView) bottomSheetView.findViewById(R.id.stationName);
-                    String stationName = marker.getTitle();
-
-                    stationNameTextView.setText(stationName);
-
-                    bottomSheetDialog.setContentView(bottomSheetView);
-                    bottomSheetDialog.getWindow().setDimAmount(0);
-                    bottomSheetDialog.show();
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                    TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
+                    textView.setText(marker.getTitle());
                     return true;
                 }
             });
@@ -129,13 +105,30 @@ public class MapHelper {
 
         initializeZoomButtons();
 
-        initializeCompass();
-
         initializeScaleBar();
 
         myLocationButton = ((MainActivity)context).findViewById(R.id.back_to_my_location);
         myLocationButton.setVisibility(View.INVISIBLE);
 
+        bottomSheetLayout = ((MainActivity)context).findViewById(R.id.bottomSheetLayout);
+
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        MapEventsReceiver mReceive = new MapEventsReceiver() {
+            @Override
+            public boolean singleTapConfirmedHelper(GeoPoint p) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                return false;
+            }
+
+            @Override
+            public boolean longPressHelper(GeoPoint p) {
+                return false;
+            }
+        };
+        MapEventsOverlay OverlayEvents = new MapEventsOverlay(((MainActivity)context).getBaseContext(), mReceive);
+        map.getOverlays().add(OverlayEvents);
     }
 
     protected void initializeRotationGestures(){
@@ -150,13 +143,6 @@ public class MapHelper {
         ImageButton zoomOutButton = ((MainActivity)context).findViewById(R.id.zoom_out_button);
         zoomInButton.setOnClickListener((view) -> map.getController().zoomIn());
         zoomOutButton.setOnClickListener((view) -> map.getController().zoomOut());
-    }
-
-    protected void initializeCompass(){
-        ImageButton compassButton = ((MainActivity)context).findViewById(R.id.compass_button);
-        SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        Sensor compassSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
-
     }
 
     protected void initializeScaleBar(){
