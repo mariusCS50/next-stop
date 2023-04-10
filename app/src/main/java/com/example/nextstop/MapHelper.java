@@ -1,31 +1,49 @@
 package com.example.nextstop;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.widget.Toast;
+
 import androidx.core.content.res.ResourcesCompat;
+
+import com.example.nextstop.PublicTransportRoutes.Route;
+import com.example.nextstop.PublicTransportRoutes.RouteItems;
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
 import org.osmdroid.api.IMapController;
+
+import org.osmdroid.bonuspack.kml.KmlDocument;
+import org.osmdroid.bonuspack.routing.OSRMRoadManager;
+import org.osmdroid.bonuspack.routing.Road;
+import org.osmdroid.bonuspack.routing.RoadManager;
 import org.osmdroid.events.MapEventsReceiver;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.FolderOverlay;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.Overlay;
+import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 
 public class MapHelper {
     private final Context context;
@@ -33,7 +51,8 @@ public class MapHelper {
     private IMapController mapController;
     private ImageButton myLocationButton;
     private LinearLayout bottomSheetLayout;
-    BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
+    private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
+    private RoadManager roadManager;
 
     public MapHelper(Context context, MapView map) {
         this.context = context;
@@ -72,12 +91,38 @@ public class MapHelper {
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     map.getController().animateTo(marker.getPosition());
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
                     TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
-                    textView.setText(marker.getTitle());
+                    String stationTitle = marker.getTitle();
+
+                    textView.setText(stationTitle);
+
+                    for (int i = 1; i <= 6; i++) {
+                        int buttonId = context.getResources().getIdentifier("ruta" + i, "id", context.getPackageName());
+                        ImageButton imageButton = (ImageButton) bottomSheetLayout.findViewById(buttonId);
+
+                        if (location.routes.contains(i)) {
+                            imageButton.setEnabled(true);
+                            imageButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(context, "Test", Toast.LENGTH_SHORT).show();
+                                    initializeRoute();
+                                    mapView.invalidate();
+                                }
+                            });
+                        } else {
+                            imageButton.setEnabled(false);
+                        }
+                    }
                     return true;
                 }
             });
         }
+    }
+
+    protected void initializeRoute() {
+
     }
 
     protected void initializeMyLocationOnMap() {

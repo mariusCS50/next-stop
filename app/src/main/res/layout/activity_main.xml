@@ -24,14 +24,6 @@
         android:layout_gravity="top"
         android:orientation="vertical"
         android:layout_margin="5dp">
-
-        <ImageButton
-            android:id="@+id/compass_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:srcCompat="@drawable/ic_menu_compass"
-            android:contentDescription="@string/compass_btn_description"
-            android:background="@android:color/transparent"/>
     </LinearLayout>
 
     <LinearLayout
@@ -69,18 +61,11 @@
             android:id="@+id/back_to_my_location"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="100dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginBottom="230dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/my_location_btn_description"
             app:srcCompat="@drawable/osm_ic_center_map"
             android:background="@android:color/transparent"/>
-        <ImageButton
-            android:id="@+id/filter_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/filter_btn_description"
-            app:srcCompat="@android:drawable/ic_input_get" />
     </LinearLayout>
 
 
@@ -88,7 +73,7 @@
     <LinearLayout
         android:id="@+id/bottomSheetLayout"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="100dp"
+        app:behavior_peekHeight="42dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -101,19 +86,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Default"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
             android:textAlignment="center"
             android:textColor="@color/black"/>
 
-        <GridLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#002185"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageButton
+                android:id="@+id/ruta1"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/route1_button_selector" />
+            <ImageButton
+                android:id="@+id/ruta2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/route2_button_selector"/>
+            <ImageButton
+                android:id="@+id/ruta3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/route3_button_selector"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/ruta1n"/>
-        </GridLayout>
+                android:id="@+id/ruta4"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:background="@drawable/route4_button_selector"/>
+            <ImageButton
+                android:id="@+id/ruta5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/route5_button_selector"/>
+            <ImageButton
+                android:id="@+id/ruta6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/route6_button_selector"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

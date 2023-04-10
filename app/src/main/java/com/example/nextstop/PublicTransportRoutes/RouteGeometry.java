@@ -1,0 +1,10 @@
+package com.example.nextstop.PublicTransportRoutes;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+public class RouteGeometry {
+    @SerializedName("coordinates")
+    public List<List<Double>> coordinates;
+}

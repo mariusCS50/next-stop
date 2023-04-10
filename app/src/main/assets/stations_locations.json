@@ -10,7 +10,7 @@
     {
       "type": "Feature",
       "id": "Stația Poliție Str.Națională",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -27,7 +27,7 @@
     {
       "type": "Feature",
       "id": "Stația Stories E58",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -44,7 +44,7 @@
     {
       "type": "Feature",
       "id": "Stația Orange Str.Națională 18",
-      "routes":[5, 6],
+      "routes":[0, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -61,7 +61,7 @@
     {
       "type": "Feature",
       "id": "Stația Rompetrol Str.Ștefan cel Mare",
-      "routes":[1, 2, 3, 4, 5],
+      "routes":[0, 1, 2, 3, 4, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -78,7 +78,7 @@
     {
       "type": "Feature",
       "id": "Stația MRAO Str.Ștefan cel Mare",
-      "routes":[1, 2, 5],
+      "routes":[0, 1, 2, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -95,7 +95,7 @@
     {
       "type": "Feature",
       "id": "Stația Biohim Str.Ștefan cel Mare",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -112,7 +112,7 @@
     {
       "type": "Feature",
       "id": "Stația Stradela Stefan cel Mare",
-      "routes":[1, 2, 5],
+      "routes":[0, 1, 2, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -129,7 +129,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Zamfir Arbore",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -146,7 +146,7 @@
     {
       "type": "Feature",
       "id": "Stația Stradela Musatinilor",
-      "routes":[1, 2, 5],
+      "routes":[0, 1, 2, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -163,7 +163,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Zamfir Arbore 2",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -180,7 +180,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Burebista",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -197,7 +197,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Petru Rares",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -214,7 +214,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Petru Rares 2",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -231,7 +231,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Aurel David",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -248,7 +248,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Stefan cel Mare Pod",
-      "routes":[1, 2, 3, 4, 5],
+      "routes":[0, 1, 2, 3, 4, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -265,7 +265,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Unghiului",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -282,7 +282,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Arcasii lui Stefan",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -299,7 +299,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Lacului 28",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -316,7 +316,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Lacului 2",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -333,7 +333,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Lacului Centrul Felicia",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -350,7 +350,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Nationala Primarie",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -367,7 +367,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Nationala L.T.V.Alecsandri",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -384,7 +384,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Romana Bricone",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -401,7 +401,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Alexandru Boico",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -418,7 +418,7 @@
     {
       "type": "Feature",
       "id": "Stația Parcul Central",
-      "routes":[2],
+      "routes":[0, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -435,7 +435,7 @@
     {
       "type": "Feature",
       "id": "Stația Scoala auto UCA",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -452,7 +452,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Titu Maiorescu",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -469,7 +469,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Oleg Ungureanu",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -486,7 +486,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Oleg Ungureanu 2",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -503,6 +503,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Alexandru Plamadeala",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -519,7 +520,7 @@
     {
       "type": "Feature",
       "id": "Stația Gop Stop",
-      "routes":[4, 5, 6],
+      "routes":[0, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -536,7 +537,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Martisor",
-      "routes":[4, 5, 6],
+      "routes":[0, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -553,7 +554,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal Bemol",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -570,7 +571,7 @@
     {
       "type": "Feature",
       "id": "Stația Stradela Decebal",
-      "routes":[4, 5],
+      "routes":[0, 4, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -587,7 +588,7 @@
     {
       "type": "Feature",
       "id": "Stația Str Decebal 3",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -604,6 +605,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal 3",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -620,6 +622,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.I.L.Caragiale",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -636,7 +639,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Alexandru cel Bun",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -653,6 +656,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Oleg Ungureanu",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -669,7 +673,7 @@
     {
       "type": "Feature",
       "id": "Stația Str. Bogdan Petriceicu Hașdeu",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -686,7 +690,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Romana Spital",
-      "routes":[2],
+      "routes":[0, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -703,7 +707,7 @@
     {
       "type": "Feature",
       "id": "Stația Bogdan Petricescu Hasdeu 8",
-      "routes":[2, 5, 6],
+      "routes":[0, 2, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -720,7 +724,7 @@
     {
       "type": "Feature",
       "id": "Stația Bogdan Petricescu Hasdeu 15",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -737,7 +741,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bernardazzi 10",
-      "routes":[1, 3, 4, 5, 6],
+      "routes":[0, 1, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -754,7 +758,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bernardazzi 10/2",
-      "routes":[2, 5, 6],
+      "routes":[0, 2, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -771,7 +775,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bernardazzi 12",
-      "routes":[1, 3, 4, 5, 6],
+      "routes":[0, 1, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -788,7 +792,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Ion Creanga 13",
-      "routes":[2, 5, 6],
+      "routes":[0, 2, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -805,7 +809,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Ion Creanga 13/2",
-      "routes":[3, 4, 5, 6],
+      "routes":[0, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -822,7 +826,7 @@
     {
       "type": "Feature",
       "id": "Stația Ninele",
-      "routes":[3, 5],
+      "routes":[0, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -839,7 +843,7 @@
     {
       "type": "Feature",
       "id": "Stația Ninele/2",
-      "routes":[2, 5, 6],
+      "routes":[0, 2, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -856,7 +860,7 @@
     {
       "type": "Feature",
       "id": "Stația Ninele/3",
-      "routes":[2, 5, 6],
+      "routes":[0, 2, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -873,7 +877,7 @@
     {
       "type": "Feature",
       "id": "Stația Parcul Central/2",
-      "routes":[5, 6],
+      "routes":[0, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -890,7 +894,7 @@
     {
       "type": "Feature",
       "id": "Stația Colegiul Agroindustrial",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -907,7 +911,7 @@
     {
       "type": "Feature",
       "id": "Stația Comfort",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -924,7 +928,7 @@
     {
       "type": "Feature",
       "id": "Stația Alexandr Boico",
-      "routes":[2, 4, 6],
+      "routes":[0, 2, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -941,7 +945,7 @@
     {
       "type": "Feature",
       "id": "Stația Slavena",
-      "routes":[2, 4, 6],
+      "routes":[0, 2, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -958,7 +962,7 @@
     {
       "type": "Feature",
       "id": "Stația Internat",
-      "routes":[1, 3, 6],
+      "routes":[0, 1, 3, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -975,7 +979,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal 12",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -992,7 +996,7 @@
     {
       "type": "Feature",
       "id": "Stația Scuar",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1009,7 +1013,7 @@
     {
       "type": "Feature",
       "id": "Stația Primaria",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1026,7 +1030,7 @@
     {
       "type": "Feature",
       "id": "Stația L.T.M.Eminescu",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1043,7 +1047,7 @@
     {
       "type": "Feature",
       "id": "Stația Apa Canal",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1060,7 +1064,7 @@
     {
       "type": "Feature",
       "id": "Stația Palatul de cultura",
-      "routes":[1, 2, 3, 4, 5, 6],
+      "routes":[0, 1, 2, 3, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1077,7 +1081,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Suceava",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1094,7 +1098,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Unghiului/2",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1111,7 +1115,7 @@
     {
       "type": "Feature",
       "id": "Stația Vento Str.Stefan cel Mare",
-      "routes":[1, 2, 3, 4, 5],
+      "routes":[0, 1, 2, 3, 4, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1128,7 +1132,7 @@
     {
       "type": "Feature",
       "id": "Stația Scoala profesionala/2",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1145,7 +1149,7 @@
     {
       "type": "Feature",
       "id": "Stația Moldova",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1162,7 +1166,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Petru Rares",
-      "routes":[3, 5],
+      "routes":[0, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1179,7 +1183,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Petru Rares/2",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1196,7 +1200,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Petru Rares/3",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1213,7 +1217,7 @@
     {
       "type": "Feature",
       "id": "Stația Petru Rares/5",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1230,7 +1234,7 @@
     {
       "type": "Feature",
       "id": "Stația Petru Rares/4",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1247,7 +1251,7 @@
     {
       "type": "Feature",
       "id": "Stația Linella Danuteni",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1264,7 +1268,7 @@
     {
       "type": "Feature",
       "id": "Stația Moldova/2",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1281,7 +1285,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.George Cosbuc",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1298,7 +1302,7 @@
     {
       "type": "Feature",
       "id": "Stația Magadan",
-      "routes":[1, 2, 3, 4],
+      "routes":[0, 1, 2, 3, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1315,7 +1319,7 @@
     {
         "type": "Feature",
       "id": "Stația Oti's Burger",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1332,7 +1336,7 @@
     {
       "type": "Feature",
       "id": "Stația Policlinica",
-      "routes":[1, 2, 3, 4],
+      "routes":[0, 1, 2, 3, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1349,7 +1353,7 @@
     {
       "type": "Feature",
       "id": "Stația Oleg Ungureanu/1",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1366,7 +1370,7 @@
     {
       "type": "Feature",
       "id": "Stația Alexandru cel Bun/2",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1383,7 +1387,7 @@
     {
       "type": "Feature",
       "id": "Stația Alexandru cel Bun/3",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1400,7 +1404,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Dumitru Matcovschi",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1417,7 +1421,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal/4",
-      "routes":[4, 5, 6],
+      "routes":[0, 4, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1434,6 +1438,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal/5",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1450,6 +1455,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal/6",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1466,6 +1472,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Grigore Vieru",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1482,6 +1489,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Mihai Eminescu/1",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1498,6 +1506,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.M.Eminescu/2",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1514,7 +1523,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Alexandru cel Bun/0",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1531,7 +1540,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Oleg Ungureanu/6",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1548,7 +1557,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Ion Creanga",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1565,7 +1574,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Ion Creanga/2",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1582,6 +1591,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Vasile Lupu",
+      "routes":[0, 1],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1598,6 +1608,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Vasile Lupu/2",
+      "routes":[0, 1],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1614,7 +1625,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Stefan cel Mare/7",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1631,7 +1642,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Zamfir Arbore/3",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1648,7 +1659,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Zamfir Arbore/4",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1665,7 +1676,7 @@
     {
       "type": "Feature",
       "id": "Stația Alexandru boico/1",
-      "routes":[1, 6],
+      "routes":[0, 1, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1682,7 +1693,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Alexandru Plamadeala",
-      "routes":[1],
+      "routes":[0, 1],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1699,7 +1710,7 @@
     {
       "type": "Feature",
       "id": "Stația Daiana Str.Romana",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1716,7 +1727,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.George Cosbuc",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1733,6 +1744,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.George Cosbuc/2",
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1749,7 +1761,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Haiducilor",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1766,7 +1778,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.George Cosbuc/3",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1783,7 +1795,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.George Cosbuc/4",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1800,7 +1812,7 @@
     {
       "type": "Feature",
       "id": "Stația George Cosbuc/5",
-      "routes":[4],
+      "routes":[0, 4],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1817,7 +1829,7 @@
     {
       "type": "Feature",
       "id": "Stația K&rona",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1834,6 +1846,7 @@
     {
       "type": "Feature",
       "id": "Stația Serviciul Ambulanta",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1850,6 +1863,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bernardazzi/0",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1866,7 +1880,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bernardazzi/7",
-      "routes":[4, 6],
+      "routes":[0, 4, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1883,7 +1897,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal 68",
-      "routes":[5, 6],
+      "routes":[0, 5, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1900,7 +1914,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Mihail Sadoveanu",
-      "routes":[4, 5],
+      "routes":[0, 4, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1917,7 +1931,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Decebal/9",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1934,6 +1948,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Industriala",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1950,7 +1965,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Bogdan Petriceicu Hasdeu",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1967,7 +1982,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Nationala 27",
-      "routes":[1, 3, 5],
+      "routes":[0, 1, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1984,6 +1999,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Nationala 27/2",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2000,7 +2016,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Mitropolit Variaam",
-      "routes":[1, 2, 3, 5],
+      "routes":[0, 1, 2, 3, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2017,7 +2033,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Stefan cel Mare/9",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2034,7 +2050,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Burebista",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2051,7 +2067,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Burebista/2",
-      "routes":[5],
+      "routes":[0, 5],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2068,7 +2084,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Burebista/3",
-      "routes":[3],
+      "routes":[0, 3],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2085,7 +2101,7 @@
     {
       "type": "Feature",
       "id": "Stația Arena",
-      "routes":[6],
+      "routes":[0, 6],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2102,7 +2118,7 @@
     {
       "type": "Feature",
       "id": "Stația Parcul Biohim",
-      "routes":[1, 2],
+      "routes":[0, 1, 2],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -2119,6 +2135,7 @@
     {
       "type": "Feature",
       "id": "Stația Petrom Str.Nationala",
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
