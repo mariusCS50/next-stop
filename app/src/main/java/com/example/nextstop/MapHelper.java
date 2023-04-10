@@ -1,8 +1,10 @@
 package com.example.nextstop;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -13,6 +15,7 @@ import androidx.core.content.res.ResourcesCompat;
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.events.MapEventsReceiver;
@@ -26,6 +29,8 @@ import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class MapHelper {
     private final Context context;
@@ -72,8 +77,12 @@ public class MapHelper {
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     map.getController().animateTo(marker.getPosition());
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
                     TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
-                    textView.setText(marker.getTitle());
+                    String stationTitle = marker.getTitle();
+
+                    textView.setText(stationTitle);
+
                     return true;
                 }
             });

@@ -13,5 +13,5 @@ public class Location {
     public Geometry geometry;
 
     @SerializedName("routes")
-    public List<Integer> routes;
+    public ArrayList<Integer> routes;
 }

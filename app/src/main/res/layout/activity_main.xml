@@ -88,7 +88,7 @@
     <LinearLayout
         android:id="@+id/bottomSheetLayout"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="100dp"
+        app:behavior_peekHeight="42dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -101,19 +101,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Default"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
             android:textAlignment="center"
             android:textColor="@color/black"/>
 
-        <GridLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#002185"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageButton
+                android:id="@+id/ruta1"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:background="@drawable/ruta1n_320x320" />
+            <ImageButton
+                android:id="@+id/ruta2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ruta2n_320x320"/>
+            <ImageButton
+                android:id="@+id/ruta3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ruta3n_320x320"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/ruta1n"/>
-        </GridLayout>
+                android:id="@+id/ruta4"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:background="@drawable/ruta4n_320x320"/>
+            <ImageButton
+                android:id="@+id/ruta5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ruta5n_320x320"/>
+            <ImageButton
+                android:id="@+id/ruta6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ruta6n_320x320"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
