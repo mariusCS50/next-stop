@@ -1,9 +1,12 @@
 package com.example.nextstop;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -43,6 +46,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MapHelper {
@@ -103,12 +107,18 @@ public class MapHelper {
 
                         if (location.routes.contains(i)) {
                             imageButton.setEnabled(true);
+                            final boolean[] areMarkersVisible = {false};
+
+                            int finalI = i;
                             imageButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Toast.makeText(context, "Test", Toast.LENGTH_SHORT).show();
-                                    initializeRoute();
-                                    mapView.invalidate();
+                                    if (areMarkersVisible[0]) {
+                                        smallMarkers(locationItems.locations, finalI);
+                                    } else {
+                                        bigMarkers(locationItems.locations, finalI);
+                                    }
+                                    areMarkersVisible[0] = !areMarkersVisible[0];
                                 }
                             });
                         } else {
@@ -121,17 +131,52 @@ public class MapHelper {
         }
     }
 
-    protected void initializeRoute() {
+    protected void bigMarkers(List<Location> locations, int i) {
+        for (Location location : locations){
+            if (location.routes.contains(i)){
+                GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
+                Drawable iconDrawable = ResourcesCompat.getDrawable(context.getResources(), org.osmdroid.library.R.drawable.osm_ic_follow_me_on, context.getTheme());
+                updateMarkerSize(point, iconDrawable);
+            }
 
+        }
+    }
+
+    protected void smallMarkers(List<Location> locations, int i) {
+        for (Location location : locations){
+            if (location.routes.contains(i)){
+                GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
+                Drawable iconDrawable = ResourcesCompat.getDrawable(context.getResources(), org.osmdroid.library.R.drawable.marker_default, context.getTheme());
+                updateMarkerSize(point, iconDrawable);
+            }
+
+        }
+    }
+
+    protected void updateMarkerSize(GeoPoint geoPoint, Drawable iconDrawable) {
+        for (Overlay overlay : map.getOverlays()) {
+            if (overlay instanceof Marker) {
+                Marker marker = (Marker) overlay;
+                if (marker.getPosition().equals(geoPoint)) {
+                    marker.setIcon(iconDrawable);
+                    break;
+                }
+            }
+        }
     }
 
     protected void initializeMyLocationOnMap() {
         MyLocationNewOverlay myLocation = new MyLocationNewOverlay(map);
+
+        Drawable customArrowDrawable = context.getResources().getDrawable(R.drawable.navigation_arrow);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) customArrowDrawable;
+        Bitmap bitmapArrow = bitmapDrawable.getBitmap();
+
+        myLocation.setDirectionIcon(bitmapArrow);
         map.getOverlays().add(myLocation);
         myLocation.enableMyLocation();
         myLocation.enableFollowLocation();
 
-        myLocationButton.setVisibility(View.VISIBLE);
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
             mapController.animateTo(myLocationGeoPoint, 18.0, 2000L);
@@ -153,7 +198,6 @@ public class MapHelper {
         initializeScaleBar();
 
         myLocationButton = ((MainActivity)context).findViewById(R.id.back_to_my_location);
-        myLocationButton.setVisibility(View.INVISIBLE);
 
         bottomSheetLayout = ((MainActivity)context).findViewById(R.id.bottomSheetLayout);
 

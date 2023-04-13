@@ -48,27 +48,16 @@
             app:srcCompat="@drawable/sharp_remove_black_36"
             android:contentDescription="@string/zoom_out_btn_description"
             android:background="@drawable/zoom_out_button_shape"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
 
         <ImageButton
             android:id="@+id/back_to_my_location"
-            android:layout_width="48dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginBottom="230dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/my_location_btn_description"
-            app:srcCompat="@drawable/osm_ic_center_map"
+            app:srcCompat="@drawable/center_map"
             android:background="@android:color/transparent"/>
     </LinearLayout>
-
-
 
     <LinearLayout
         android:id="@+id/bottomSheetLayout"
