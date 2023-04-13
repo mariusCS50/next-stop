@@ -29,8 +29,26 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <ImageButton
+            android:id="@+id/expand_map_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/expand_map"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|end"
         android:orientation="vertical"
+        android:textAlignment="center"
         android:layout_margin="5dp">
 
         <ImageButton
@@ -51,8 +69,10 @@
 
         <ImageButton
             android:id="@+id/back_to_my_location"
-            android:layout_width="wrap_content"
+            android:layout_width="48dp"
             android:layout_height="48dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/my_location_btn_description"
             app:srcCompat="@drawable/center_map"
@@ -84,51 +104,109 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="#002185"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
             <ImageButton
                 android:id="@+id/ruta1"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route1_button_selector" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
             <ImageButton
                 android:id="@+id/ruta2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route2_button_selector"/>
-            <ImageButton
-                android:id="@+id/ruta3"
+
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/ruta3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route3_button_selector"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
             <ImageButton
                 android:id="@+id/ruta4"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route4_button_selector"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
             <ImageButton
                 android:id="@+id/ruta5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route5_button_selector"/>
-            <ImageButton
-                android:id="@+id/ruta6"
+
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/ruta6"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@drawable/route6_button_selector"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
         </LinearLayout>
     </LinearLayout>
 
