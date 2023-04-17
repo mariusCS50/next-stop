@@ -109,7 +109,7 @@ public class MapHelper {
             public boolean onMarkerClick(Marker marker, MapView mapView) {
                 map.getController().animateTo(marker.getPosition());
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
+                resetButtonStates();
                 TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
                 String stationTitle = marker.getTitle();
 
@@ -118,10 +118,9 @@ public class MapHelper {
                 for (int i = 1; i <= 6; i++) {
                     int buttonId = context.getResources().getIdentifier("ruta" + i, "id", context.getPackageName());
                     ImageButton imageButton = (ImageButton) bottomSheetLayout.findViewById(buttonId);
-
+                    int finalI = i;
                     if (location.routes.contains(i)) {
                         imageButton.setEnabled(true);
-                        int finalI = i;
                         imageButton.setOnClickListener(new View.OnClickListener() {
                             boolean isActive = false;
                             @Override
@@ -149,6 +148,8 @@ public class MapHelper {
                         });
                     } else {
                         imageButton.setEnabled(false);
+                        int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_disabled", "drawable", context.getPackageName());
+                        imageButton.setBackgroundResource(buttonStateId);
                     }
                 }
                 return true;
@@ -157,6 +158,10 @@ public class MapHelper {
     }
 
     protected void updateMarkers(List<Location> locations){
+        for (int check = 1; check <= 6; check++)
+            if (areMarkersVisible[check]) showRoute(check);
+            else hideRoute(check);
+
         for (Location location : locations){
             boolean temp = false;
             for (int check = 1; check <= 6; check++)
@@ -171,10 +176,6 @@ public class MapHelper {
                 hideMarker(point);
             }
         }
-
-        for (int check = 1; check <= 6; check++)
-            if (areMarkersVisible[check]) showRoute(check);
-                else hideRoute(check);
     }
 
     protected void showMarker(Location location, Drawable newIconDrawable) {
@@ -253,15 +254,15 @@ public class MapHelper {
         ImageButton route1 = bottomSheetLayout.findViewById(R.id.ruta1);
         route1.setBackgroundResource(R.drawable.route_1_enabled);
         ImageButton route2 = bottomSheetLayout.findViewById(R.id.ruta2);
-        route1.setBackgroundResource(R.drawable.route_2_enabled);
+        route2.setBackgroundResource(R.drawable.route_2_enabled);
         ImageButton route3 = bottomSheetLayout.findViewById(R.id.ruta3);
-        route1.setBackgroundResource(R.drawable.route_3_enabled);
+        route3.setBackgroundResource(R.drawable.route_3_enabled);
         ImageButton route4 = bottomSheetLayout.findViewById(R.id.ruta4);
-        route1.setBackgroundResource(R.drawable.route_4_enabled);
+        route4.setBackgroundResource(R.drawable.route_4_enabled);
         ImageButton route5 = bottomSheetLayout.findViewById(R.id.ruta5);
-        route1.setBackgroundResource(R.drawable.route_5_enabled);
+        route5.setBackgroundResource(R.drawable.route_5_enabled);
         ImageButton route6 = bottomSheetLayout.findViewById(R.id.ruta6);
-        route1.setBackgroundResource(R.drawable.route_6_enabled);
+        route6.setBackgroundResource(R.drawable.route_6_enabled);
     }
 
     protected void initializeMyLocationOnMap() {
@@ -310,6 +311,8 @@ public class MapHelper {
                 addStations();
                 clearLines();
                 resetButtonStates();
+                areMarkersVisible[1] = areMarkersVisible[2] = areMarkersVisible[3] = false;
+                areMarkersVisible[4] = areMarkersVisible[5] = areMarkersVisible[6] = false;
                 map.invalidate();
                 return false;
             }
@@ -337,7 +340,10 @@ public class MapHelper {
 
         ImageButton expandMapView = ((MainActivity)context).findViewById(R.id.expand_map_button);
         GeoPoint mapCenter = new GeoPoint(47.215606, 27.795);
-        expandMapView.setOnClickListener((view) -> mapController.animateTo(mapCenter, 13.8, 2000L));
+        expandMapView.setOnClickListener((view) -> {
+            mapController.animateTo(mapCenter, 13.8, 2000L);
+            map.setMapOrientation(0.0f);
+        });
     }
 
     protected void initializeScaleBar(){
