@@ -15,9 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.nextstop.PublicTransportRoutes.Route;
+import com.example.nextstop.PublicTransportRoutes.RouteGeometry;
 import com.example.nextstop.PublicTransportRoutes.RouteItems;
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
@@ -35,9 +37,12 @@ import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.FolderOverlay;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
+import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.Overlay;
+import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
@@ -60,15 +65,15 @@ public class MapHelper {
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private RoadManager roadManager;
     private LocationItems locationItems;
+    final boolean[] areMarkersVisible = {false, false, false, false, false, false, false};
 
     public MapHelper(Context context, MapView map) {
         this.context = context;
         this.map = map;
     }
 
-    protected String readLocationsJson() {
-
-        try (InputStream inputStream = context.getAssets().open("stations_locations.json")) {
+    protected String readJson(String fileName) {
+        try (InputStream inputStream = context.getAssets().open(fileName)) {
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
@@ -79,103 +84,184 @@ public class MapHelper {
         }
     }
 
+
     protected void addStations() {
-        String locationsJson = readLocationsJson();
+        String locationsJson = readJson("stations_locations.json");
         locationItems = new Gson().fromJson(locationsJson, LocationItems.class);
 
         for (Location location : locationItems.locations) {
-            Marker marker = new Marker(map);
-            marker.setTitle(location.id);
-
             Drawable originalMarkerDrawable = context.getResources().getDrawable(R.drawable.bus_stop);
-            marker.setIcon(resizeIcon(originalMarkerDrawable));
+            createMarker(location, originalMarkerDrawable);
+        }
+    }
 
-            marker.setPosition(new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0)));
-            map.getOverlays().add(marker);
+    protected void createMarker(Location location, Drawable iconDrawable){
+        Marker marker = new Marker(map);
+        marker.setTitle(location.id);
 
-            marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(Marker marker, MapView mapView) {
-                    map.getController().animateTo(marker.getPosition());
-                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        marker.setIcon(iconDrawable);
 
-                    TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
-                    String stationTitle = marker.getTitle();
+        marker.setPosition(new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0)));
+        map.getOverlays().add(marker);
 
-                    textView.setText(stationTitle);
+        marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker, MapView mapView) {
+                map.getController().animateTo(marker.getPosition());
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
-                    for (int i = 1; i <= 6; i++) {
-                        int buttonId = context.getResources().getIdentifier("ruta" + i, "id", context.getPackageName());
-                        ImageButton imageButton = (ImageButton) bottomSheetLayout.findViewById(buttonId);
+                TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
+                String stationTitle = marker.getTitle();
 
-                        if (location.routes.contains(i)) {
-                            imageButton.setEnabled(true);
-                            final boolean[] areMarkersVisible = {false};
+                textView.setText(stationTitle);
 
-                            int finalI = i;
-                            imageButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    if (areMarkersVisible[0]) {
-                                        smallMarkers(locationItems.locations, finalI);
-                                    } else {
-                                        bigMarkers(locationItems.locations, finalI);
-                                    }
-                                    map.invalidate();
-                                    areMarkersVisible[0] = !areMarkersVisible[0];
+                for (int i = 1; i <= 6; i++) {
+                    int buttonId = context.getResources().getIdentifier("ruta" + i, "id", context.getPackageName());
+                    ImageButton imageButton = (ImageButton) bottomSheetLayout.findViewById(buttonId);
+
+                    if (location.routes.contains(i)) {
+                        imageButton.setEnabled(true);
+                        int finalI = i;
+                        imageButton.setOnClickListener(new View.OnClickListener() {
+                            boolean isActive = false;
+                            @Override
+                            public void onClick(View view) {
+                                clearMarkers();
+                                clearLines();
+                                if (areMarkersVisible[finalI]) {
+                                    areMarkersVisible[finalI] = false;
+                                    updateMarkers(locationItems.locations);
+                                } else {
+                                    areMarkersVisible[finalI] = true;
+                                    updateMarkers(locationItems.locations);
                                 }
-                            });
-                        } else {
-                            imageButton.setEnabled(false);
-                        }
+
+                                isActive = !isActive;
+                                if (isActive) {
+                                    int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_pressed", "drawable", context.getPackageName());
+                                    imageButton.setBackgroundResource(buttonStateId);
+                                } else {
+                                    int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_enabled", "drawable", context.getPackageName());
+                                    imageButton.setBackgroundResource(buttonStateId);
+                                }
+                                map.invalidate();
+                            }
+                        });
+                    } else {
+                        imageButton.setEnabled(false);
                     }
-                    return true;
                 }
-            });
-        }
-    }
-
-    protected Drawable resizeIcon(Drawable bruteDrawable){
-        int markerWidth = 40;
-        int markerHeight = 52;
-        Bitmap originalBitmap = ((BitmapDrawable) bruteDrawable).getBitmap();
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, markerWidth, markerHeight, false);
-        Drawable scaledDrawable = new BitmapDrawable(context.getResources(), scaledBitmap);
-        return  scaledDrawable;
-    }
-
-    protected void bigMarkers(List<Location> locations, int i) {
-        for (Location location : locations){
-            if (location.routes.contains(i)){
-                GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
-                Drawable originalDrawable = context.getResources().getDrawable(org.osmdroid.library.R.drawable.marker_default);
-                updateMarker(point, resizeIcon(originalDrawable));
+                return true;
             }
-
-        }
+        });
     }
 
-    protected void smallMarkers(List<Location> locations, int i) {
+    protected void updateMarkers(List<Location> locations){
         for (Location location : locations){
-            if (location.routes.contains(i)){
-                GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
-                Drawable originalDrawable = context.getResources().getDrawable(R.drawable.bus_stop);
-                updateMarker(point, resizeIcon(originalDrawable));
-            }
+            boolean temp = false;
+            for (int check = 1; check <= 6; check++)
+                if (areMarkersVisible[check] && location.routes.contains(check))
+                    temp = true;
 
+            if (temp) {
+                Drawable newDrawable = context.getResources().getDrawable(org.osmdroid.library.R.drawable.marker_default);
+                showMarker(location, newDrawable);
+            } else {
+                GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
+                hideMarker(point);
+            }
         }
+
+        for (int check = 1; check <= 6; check++)
+            if (areMarkersVisible[check]) showRoute(check);
+                else hideRoute(check);
     }
 
-    protected void updateMarker(GeoPoint geoPoint, Drawable iconDrawable) {
+    protected void showMarker(Location location, Drawable newIconDrawable) {
+        createMarker(location, newIconDrawable);
+    }
+
+    protected void hideMarker(GeoPoint geoPoint) {
         for (Overlay overlay : map.getOverlays()) {
             if (overlay instanceof Marker) {
                 Marker marker = (Marker) overlay;
                 if (marker.getPosition().equals(geoPoint)) {
-                    marker.setIcon(iconDrawable);
+                    map.getOverlays().remove(marker);
                     break;
                 }
             }
         }
+    }
+
+    protected void showRoute(int routeId){
+        String routesJson = readJson("traseu_ruta_" + routeId + ".geojson");
+        RouteItems routeItem = new Gson().fromJson(routesJson, RouteItems.class);
+
+        List<GeoPoint> geoPoints = new ArrayList<>();
+        for(List<Double> route : routeItem.route.get(0).geometry.coordinates)
+        {
+            GeoPoint point = new GeoPoint(route.get(1), route.get(0));
+            geoPoints.add(point);
+        }
+
+        Polyline polyline = new Polyline();
+
+        int colorId = context.getResources().getIdentifier("route" + routeId, "color", context.getPackageName());
+        int customColor = ContextCompat.getColor(context, colorId);
+        String colorString = "#" + Integer.toHexString(customColor).substring(2);
+        polyline.setColor(Color.parseColor(colorString));
+
+        String lineTitle = "ruta" + routeId;
+        polyline.setTitle(lineTitle);
+        polyline.setPoints(geoPoints);
+
+        map.getOverlayManager().add(polyline);
+        map.invalidate();
+    }
+
+    protected void hideRoute(int routeId){
+        String lineTitle = "ruta" + routeId;
+        for (Overlay overlay : map.getOverlays()) {
+            if (overlay instanceof Polyline) {
+                Polyline polyline = (Polyline) overlay;
+                if (polyline.getTitle().equals(lineTitle))
+                    map.getOverlays().remove(polyline);
+                break;
+            }
+        }
+    }
+
+    protected void clearMarkers() {
+        for (Overlay overlay : map.getOverlays()) {
+            if (overlay instanceof Marker) {
+                Marker marker = (Marker) overlay;
+                map.getOverlays().remove(marker);
+            }
+        }
+    }
+
+    protected void clearLines(){
+        for (Overlay overlay : map.getOverlays()) {
+            if (overlay instanceof Polyline) {
+                Polyline polyline = (Polyline) overlay;
+                map.getOverlays().remove(polyline);
+            }
+        }
+    }
+
+    protected void resetButtonStates(){
+        ImageButton route1 = bottomSheetLayout.findViewById(R.id.ruta1);
+        route1.setBackgroundResource(R.drawable.route_1_enabled);
+        ImageButton route2 = bottomSheetLayout.findViewById(R.id.ruta2);
+        route1.setBackgroundResource(R.drawable.route_2_enabled);
+        ImageButton route3 = bottomSheetLayout.findViewById(R.id.ruta3);
+        route1.setBackgroundResource(R.drawable.route_3_enabled);
+        ImageButton route4 = bottomSheetLayout.findViewById(R.id.ruta4);
+        route1.setBackgroundResource(R.drawable.route_4_enabled);
+        ImageButton route5 = bottomSheetLayout.findViewById(R.id.ruta5);
+        route1.setBackgroundResource(R.drawable.route_5_enabled);
+        ImageButton route6 = bottomSheetLayout.findViewById(R.id.ruta6);
+        route1.setBackgroundResource(R.drawable.route_6_enabled);
     }
 
     protected void initializeMyLocationOnMap() {
@@ -221,16 +307,12 @@ public class MapHelper {
             @Override
             public boolean singleTapConfirmedHelper(GeoPoint p) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-                smallMarkers(locationItems.locations, 1);
-                smallMarkers(locationItems.locations, 2);
-                smallMarkers(locationItems.locations, 3);
-                smallMarkers(locationItems.locations, 4);
-                smallMarkers(locationItems.locations, 5);
-                smallMarkers(locationItems.locations, 6);
+                addStations();
+                clearLines();
+                resetButtonStates();
                 map.invalidate();
                 return false;
             }
-
             @Override
             public boolean longPressHelper(GeoPoint p) {
                 return false;

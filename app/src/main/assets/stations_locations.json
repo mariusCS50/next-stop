@@ -1591,7 +1591,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Vasile Lupu",
-      "routes":[0, 1],
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -1608,7 +1608,7 @@
     {
       "type": "Feature",
       "id": "Stația Str.Vasile Lupu/2",
-      "routes":[0, 1],
+      "routes":[0],
       "geometry": {
         "type": "Point",
         "coordinates": [
