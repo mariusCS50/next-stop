@@ -122,26 +122,20 @@ public class MapHelper {
                     if (location.routes.contains(i)) {
                         imageButton.setEnabled(true);
                         imageButton.setOnClickListener(new View.OnClickListener() {
-                            boolean isActive = false;
                             @Override
                             public void onClick(View view) {
                                 clearMarkers();
                                 clearLines();
                                 if (areMarkersVisible[finalI]) {
                                     areMarkersVisible[finalI] = false;
+                                    int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_enabled", "drawable", context.getPackageName());
+                                    imageButton.setBackgroundResource(buttonStateId);
                                     updateMarkers(locationItems.locations);
                                 } else {
                                     areMarkersVisible[finalI] = true;
-                                    updateMarkers(locationItems.locations);
-                                }
-
-                                isActive = !isActive;
-                                if (isActive) {
                                     int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_pressed", "drawable", context.getPackageName());
                                     imageButton.setBackgroundResource(buttonStateId);
-                                } else {
-                                    int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_enabled", "drawable", context.getPackageName());
-                                    imageButton.setBackgroundResource(buttonStateId);
+                                    updateMarkers(locationItems.locations);
                                 }
                                 map.invalidate();
                             }
@@ -150,6 +144,8 @@ public class MapHelper {
                         imageButton.setEnabled(false);
                         int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_disabled", "drawable", context.getPackageName());
                         imageButton.setBackgroundResource(buttonStateId);
+                        areMarkersVisible[finalI] = false;
+                        updateMarkers(locationItems.locations);
                     }
                 }
                 return true;
@@ -252,17 +248,17 @@ public class MapHelper {
 
     protected void resetButtonStates(){
         ImageButton route1 = bottomSheetLayout.findViewById(R.id.ruta1);
-        route1.setBackgroundResource(R.drawable.route_1_enabled);
+        if (!areMarkersVisible[1]) route1.setBackgroundResource(R.drawable.route_1_enabled);
         ImageButton route2 = bottomSheetLayout.findViewById(R.id.ruta2);
-        route2.setBackgroundResource(R.drawable.route_2_enabled);
+        if (!areMarkersVisible[2]) route2.setBackgroundResource(R.drawable.route_2_enabled);
         ImageButton route3 = bottomSheetLayout.findViewById(R.id.ruta3);
-        route3.setBackgroundResource(R.drawable.route_3_enabled);
+        if (!areMarkersVisible[3]) route3.setBackgroundResource(R.drawable.route_3_enabled);
         ImageButton route4 = bottomSheetLayout.findViewById(R.id.ruta4);
-        route4.setBackgroundResource(R.drawable.route_4_enabled);
+        if (!areMarkersVisible[4]) route4.setBackgroundResource(R.drawable.route_4_enabled);
         ImageButton route5 = bottomSheetLayout.findViewById(R.id.ruta5);
-        route5.setBackgroundResource(R.drawable.route_5_enabled);
+        if (!areMarkersVisible[5]) route5.setBackgroundResource(R.drawable.route_5_enabled);
         ImageButton route6 = bottomSheetLayout.findViewById(R.id.ruta6);
-        route6.setBackgroundResource(R.drawable.route_6_enabled);
+        if (!areMarkersVisible[6]) route6.setBackgroundResource(R.drawable.route_6_enabled);
     }
 
     protected void initializeMyLocationOnMap() {
@@ -310,9 +306,9 @@ public class MapHelper {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 addStations();
                 clearLines();
-                resetButtonStates();
                 areMarkersVisible[1] = areMarkersVisible[2] = areMarkersVisible[3] = false;
                 areMarkersVisible[4] = areMarkersVisible[5] = areMarkersVisible[6] = false;
+                resetButtonStates();
                 map.invalidate();
                 return false;
             }
