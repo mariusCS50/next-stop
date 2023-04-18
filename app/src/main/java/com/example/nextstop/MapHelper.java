@@ -2,6 +2,7 @@ package com.example.nextstop;
 
 import static android.content.Context.SENSOR_SERVICE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import android.hardware.SensorManager;
 import android.media.Image;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -38,7 +40,11 @@ import org.osmdroid.bonuspack.kml.KmlDocument;
 import org.osmdroid.bonuspack.routing.OSRMRoadManager;
 import org.osmdroid.bonuspack.routing.Road;
 import org.osmdroid.bonuspack.routing.RoadManager;
+import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapEventsReceiver;
+import org.osmdroid.events.MapListener;
+import org.osmdroid.events.ScrollEvent;
+import org.osmdroid.events.ZoomEvent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
@@ -67,10 +73,10 @@ public class MapHelper implements SensorEventListener {
     private final Context context;
     private final MapView map;
     private IMapController mapController;
+    private MyLocationNewOverlay myLocation;
     private ImageButton myLocationButton;
     private LinearLayout bottomSheetLayout;
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
-    private RoadManager roadManager;
     private LocationItems locationItems;
     final boolean[] areMarkersVisible = {false, false, false, false, false, false, false};
 
@@ -115,29 +121,32 @@ public class MapHelper implements SensorEventListener {
     protected void createMarker(Location location, Drawable iconDrawable){
         Marker marker = new Marker(map);
         marker.setTitle(location.id);
-
         marker.setIcon(iconDrawable);
+        marker.setPosition(new GeoPoint(
+                location.geometry.coordinates.get(1),
+                location.geometry.coordinates.get(0)));
 
-        marker.setPosition(new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0)));
         map.getOverlays().add(marker);
 
         marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
-                map.getController().animateTo(marker.getPosition(), 16.0, 2000L);
+                map.getController().animateTo(marker.getPosition(), 16.8, 2000L);
+
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
                 resetButtonStates();
                 TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
                 String stationTitle = marker.getTitle();
-
                 textView.setText(stationTitle);
-
                 for (int i = 1; i <= 6; i++) {
                     int buttonId = context.getResources().getIdentifier("ruta" + i, "id", context.getPackageName());
                     ImageButton imageButton = (ImageButton) bottomSheetLayout.findViewById(buttonId);
+
                     int finalI = i;
                     if (location.routes.contains(i)) {
                         imageButton.setEnabled(true);
+
                         imageButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -163,8 +172,8 @@ public class MapHelper implements SensorEventListener {
                         areMarkersVisible[finalI] = false;
                     }
 
-                    for (int checkAll = 1; checkAll <= 6; checkAll++)
-                        if (areMarkersVisible[checkAll]){
+                    for (int check = 1; check <= 6; check++)
+                        if (areMarkersVisible[check]){
                             clearLines();
                             clearMarkers();
                             updateMarkers(locationItems.locations);
@@ -178,15 +187,17 @@ public class MapHelper implements SensorEventListener {
     }
 
     protected void updateMarkers(List<Location> locations){
-        for (int check = 1; check <= 6; check++)
+        for (int check = 1; check <= 6; check++) {
             if (areMarkersVisible[check]) showRoute(check);
             else hideRoute(check);
+        }
 
-        for (Location location : locations){
+        for (Location location : locations) {
             String stations = "";
-            for (int check = 1; check <= 6; check++)
+            for (int check = 1; check <= 6; check++) {
                 if (areMarkersVisible[check] && location.routes.contains(check))
                     stations += check;
+            }
 
             if (!stations.equals("")) {
                 int markerDrawableId = context.getResources().getIdentifier("station" + stations, "drawable", context.getPackageName());
@@ -201,6 +212,8 @@ public class MapHelper implements SensorEventListener {
 
     protected void showMarker(Location location, Drawable newIconDrawable) {
         createMarker(location, newIconDrawable);
+        map.getOverlays().remove(myLocation);
+        map.getOverlays().add(myLocation);
     }
 
     protected void hideMarker(GeoPoint geoPoint) {
@@ -220,8 +233,7 @@ public class MapHelper implements SensorEventListener {
         RouteItems routeItem = new Gson().fromJson(routesJson, RouteItems.class);
 
         List<GeoPoint> geoPoints = new ArrayList<>();
-        for(List<Double> route : routeItem.route.get(0).geometry.coordinates)
-        {
+        for(List<Double> route : routeItem.route.get(0).geometry.coordinates) {
             GeoPoint point = new GeoPoint(route.get(1), route.get(0));
             geoPoints.add(point);
         }
@@ -290,16 +302,17 @@ public class MapHelper implements SensorEventListener {
     }
 
     protected void initializeMyLocationOnMap() {
-        MyLocationNewOverlay myLocation = new MyLocationNewOverlay(map);
+        myLocation = new MyLocationNewOverlay(map);
 
         Drawable customArrowDrawable = context.getResources().getDrawable(R.drawable.navigation_arrow);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) customArrowDrawable;
         Bitmap bitmapArrow = bitmapDrawable.getBitmap();
 
         myLocation.setDirectionIcon(bitmapArrow);
-        map.getOverlays().add(myLocation);
         myLocation.enableMyLocation();
         myLocation.enableFollowLocation();
+        map.getOverlays().add(myLocation);
+        map.invalidate();
 
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
@@ -307,6 +320,7 @@ public class MapHelper implements SensorEventListener {
         });
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     protected void initializeDefaultMap() {
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(false);
@@ -316,15 +330,12 @@ public class MapHelper implements SensorEventListener {
         mapController.setZoom(18.0);
 
         initializeRotationGestures();
-
         initializeButtons();
-
         initializeCompass();
 
         myLocationButton = ((MainActivity)context).findViewById(R.id.back_to_my_location);
 
         bottomSheetLayout = ((MainActivity)context).findViewById(R.id.bottomSheetLayout);
-
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
@@ -333,10 +344,12 @@ public class MapHelper implements SensorEventListener {
             public boolean singleTapConfirmedHelper(GeoPoint p) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 addStations();
-                clearLines();
                 areMarkersVisible[1] = areMarkersVisible[2] = areMarkersVisible[3] = false;
                 areMarkersVisible[4] = areMarkersVisible[5] = areMarkersVisible[6] = false;
+                clearLines();
                 resetButtonStates();
+                map.getOverlays().remove(myLocation);
+                map.getOverlays().add(myLocation);
                 map.invalidate();
                 return false;
             }
@@ -347,6 +360,17 @@ public class MapHelper implements SensorEventListener {
         };
         MapEventsOverlay OverlayEvents = new MapEventsOverlay(((MainActivity)context).getBaseContext(), mReceive);
         map.getOverlays().add(OverlayEvents);
+
+        map.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED)
+                        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
+                return false;
+            }
+        });
     }
 
     protected void initializeRotationGestures(){
@@ -363,7 +387,6 @@ public class MapHelper implements SensorEventListener {
         zoomOutButton.setOnClickListener((view) -> map.getController().zoomOut());
 
         ImageButton expandMapView = ((MainActivity)context).findViewById(R.id.expand_map_button);
-
         expandMapView.setOnClickListener((view) -> {
             mapController.animateTo(new GeoPoint(47.215606, 27.795), 13.8, 2000L);
             map.setMapOrientation(0.0f);
