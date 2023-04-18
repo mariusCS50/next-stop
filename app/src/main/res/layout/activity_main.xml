@@ -23,7 +23,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:orientation="vertical"
+        android:layout_margin="3dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
         android:layout_margin="5dp">
+
+        <Button
+            android:id="@+id/trasee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:text="Traseele Rutelor"
+            android:textColor="@color/black" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -31,16 +49,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp">
 
         <ImageButton
             android:id="@+id/expand_map_button"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/expand_map"
+            android:background="@drawable/button_shape"/>
+
+        <ImageButton
+            android:id="@+id/compass"
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="5dp"
+            app:srcCompat="@drawable/compass"
             android:background="@android:color/transparent"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -74,6 +105,7 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
             android:contentDescription="@string/my_location_btn_description"
             app:srcCompat="@drawable/center_map"
             android:background="@android:color/transparent"/>

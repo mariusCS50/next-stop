@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
+import android.widget.ImageButton;
 
 import org.osmdroid.config.Configuration;
 
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-
         mapHelper = new MapHelper(this, findViewById(R.id.map));
         mapHelper.initializeDefaultMap();
         mapHelper.addStations();

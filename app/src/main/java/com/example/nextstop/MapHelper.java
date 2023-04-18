@@ -1,15 +1,22 @@
 package com.example.nextstop;
 
+import static android.content.Context.SENSOR_SERVICE;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.Image;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -56,7 +63,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MapHelper {
+public class MapHelper implements SensorEventListener {
     private final Context context;
     private final MapView map;
     private IMapController mapController;
@@ -67,9 +74,19 @@ public class MapHelper {
     private LocationItems locationItems;
     final boolean[] areMarkersVisible = {false, false, false, false, false, false, false};
 
+    private SensorManager sensorManager;
+    private Sensor magnetometerSensor;
+    private Sensor accelerometerSensor;
+    private float[] gravity;
+    private float[] geomagnetic;
+    private ImageButton compassImageButton;
+
     public MapHelper(Context context, MapView map) {
         this.context = context;
         this.map = map;
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     protected String readJson(String fileName) {
@@ -107,7 +124,7 @@ public class MapHelper {
         marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
-                map.getController().animateTo(marker.getPosition());
+                map.getController().animateTo(marker.getPosition(), 16.0, 2000L);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 resetButtonStates();
                 TextView textView = (TextView) bottomSheetLayout.findViewById(R.id.stationName);
@@ -166,13 +183,14 @@ public class MapHelper {
             else hideRoute(check);
 
         for (Location location : locations){
-            boolean temp = false;
+            String stations = "";
             for (int check = 1; check <= 6; check++)
                 if (areMarkersVisible[check] && location.routes.contains(check))
-                    temp = true;
+                    stations += check;
 
-            if (temp) {
-                Drawable newDrawable = context.getResources().getDrawable(org.osmdroid.library.R.drawable.marker_default);
+            if (!stations.equals("")) {
+                int markerDrawableId = context.getResources().getIdentifier("station" + stations, "drawable", context.getPackageName());
+                Drawable newDrawable = context.getResources().getDrawable(markerDrawableId);
                 showMarker(location, newDrawable);
             } else {
                 GeoPoint point = new GeoPoint(location.geometry.coordinates.get(1), location.geometry.coordinates.get(0));
@@ -301,7 +319,7 @@ public class MapHelper {
 
         initializeButtons();
 
-        initializeScaleBar();
+        initializeCompass();
 
         myLocationButton = ((MainActivity)context).findViewById(R.id.back_to_my_location);
 
@@ -345,27 +363,64 @@ public class MapHelper {
         zoomOutButton.setOnClickListener((view) -> map.getController().zoomOut());
 
         ImageButton expandMapView = ((MainActivity)context).findViewById(R.id.expand_map_button);
-        GeoPoint mapCenter = new GeoPoint(47.215606, 27.795);
+
         expandMapView.setOnClickListener((view) -> {
-            mapController.animateTo(mapCenter, 13.8, 2000L);
+            mapController.animateTo(new GeoPoint(47.215606, 27.795), 13.8, 2000L);
             map.setMapOrientation(0.0f);
         });
     }
 
-    protected void initializeScaleBar(){
-        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        ScaleBarOverlay mScaleBarOverlay = new ScaleBarOverlay(map);
-        mScaleBarOverlay.setCentred(true);
-        mScaleBarOverlay.setTextSize(32);
-        mScaleBarOverlay.setScaleBarOffset(dm.widthPixels / 2, 10);
-        map.getOverlays().add(mScaleBarOverlay);
+    protected void initializeCompass(){
+        compassImageButton = ((MainActivity)context).findViewById(R.id.compass);
+
+        compassImageButton.setOnClickListener((view) -> {
+            map.setMapOrientation(0.0f);
+        });
+
+        if (magnetometerSensor != null) {
+            sensorManager.registerListener(this, magnetometerSensor, SensorManager.SENSOR_DELAY_GAME);
+            sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
+        }
     }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            gravity = event.values;
+        } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+            geomagnetic = event.values;
+        }
+
+        if (gravity != null && geomagnetic != null) {
+            float R[] = new float[9];
+            float I[] = new float[9];
+
+            if (SensorManager.getRotationMatrix(R, I, gravity, geomagnetic)) {
+                float orientation[] = new float[3];
+                SensorManager.getOrientation(R, orientation);
+
+                float azimuth = (float) Math.toDegrees(orientation[0]);
+                compassImageButton.setRotation(-azimuth);
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
 
     public void onPause() {
         map.onPause();
+        sensorManager.unregisterListener(this, magnetometerSensor);
     }
 
     public void onResume() {
         map.onResume();
+        if (magnetometerSensor != null) {
+            sensorManager.registerListener(this, magnetometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }
     }
 }
