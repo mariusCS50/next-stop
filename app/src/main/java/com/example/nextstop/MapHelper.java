@@ -130,13 +130,12 @@ public class MapHelper {
                                     areMarkersVisible[finalI] = false;
                                     int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_enabled", "drawable", context.getPackageName());
                                     imageButton.setBackgroundResource(buttonStateId);
-                                    updateMarkers(locationItems.locations);
                                 } else {
                                     areMarkersVisible[finalI] = true;
                                     int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_pressed", "drawable", context.getPackageName());
                                     imageButton.setBackgroundResource(buttonStateId);
-                                    updateMarkers(locationItems.locations);
                                 }
+                                updateMarkers(locationItems.locations);
                                 map.invalidate();
                             }
                         });
@@ -145,8 +144,16 @@ public class MapHelper {
                         int buttonStateId = context.getResources().getIdentifier("route_" + finalI + "_disabled", "drawable", context.getPackageName());
                         imageButton.setBackgroundResource(buttonStateId);
                         areMarkersVisible[finalI] = false;
-                        updateMarkers(locationItems.locations);
                     }
+
+                    for (int checkAll = 1; checkAll <= 6; checkAll++)
+                        if (areMarkersVisible[checkAll]){
+                            clearLines();
+                            clearMarkers();
+                            updateMarkers(locationItems.locations);
+                            map.invalidate();
+                            break;
+                        }
                 }
                 return true;
             }
@@ -222,8 +229,11 @@ public class MapHelper {
             if (overlay instanceof Polyline) {
                 Polyline polyline = (Polyline) overlay;
                 if (polyline.getTitle().equals(lineTitle))
+                {
                     map.getOverlays().remove(polyline);
-                break;
+                    map.invalidate();
+                    break;
+                }
             }
         }
     }
