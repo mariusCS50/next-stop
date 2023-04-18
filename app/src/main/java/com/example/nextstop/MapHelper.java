@@ -67,6 +67,7 @@ public class MapHelper implements SensorEventListener {
     private final Context context;
     private final MapView map;
     private IMapController mapController;
+    private MyLocationNewOverlay myLocation;
     private ImageButton myLocationButton;
     private LinearLayout bottomSheetLayout;
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
@@ -201,6 +202,8 @@ public class MapHelper implements SensorEventListener {
 
     protected void showMarker(Location location, Drawable newIconDrawable) {
         createMarker(location, newIconDrawable);
+        map.getOverlays().remove(myLocation);
+        map.getOverlays().add(myLocation);
     }
 
     protected void hideMarker(GeoPoint geoPoint) {
@@ -290,16 +293,17 @@ public class MapHelper implements SensorEventListener {
     }
 
     protected void initializeMyLocationOnMap() {
-        MyLocationNewOverlay myLocation = new MyLocationNewOverlay(map);
+        myLocation = new MyLocationNewOverlay(map);
 
         Drawable customArrowDrawable = context.getResources().getDrawable(R.drawable.navigation_arrow);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) customArrowDrawable;
         Bitmap bitmapArrow = bitmapDrawable.getBitmap();
 
         myLocation.setDirectionIcon(bitmapArrow);
-        map.getOverlays().add(myLocation);
         myLocation.enableMyLocation();
         myLocation.enableFollowLocation();
+        map.getOverlays().add(myLocation);
+        map.invalidate();
 
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
