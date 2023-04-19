@@ -30,17 +30,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:orientation="horizontal"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/trasee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textAllCaps="false"
+            android:background="@drawable/route_activity_button_shape"
             android:text="Traseele Rutelor"
-            android:textColor="@color/black" />
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:padding="10dp"/>
 
     </LinearLayout>
 
@@ -59,7 +61,7 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/expand_map"
-            android:background="@drawable/button_shape"/>
+            android:background="@drawable/expand_button_shape"/>
 
         <ImageButton
             android:id="@+id/compass"
