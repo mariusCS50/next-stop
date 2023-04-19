@@ -2,6 +2,8 @@ package com.example.nextstop;
 
 import static android.content.Context.SENSOR_SERVICE;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,6 +20,9 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -34,6 +39,8 @@ import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
+
+import org.osmdroid.api.IGeoPoint;
 import org.osmdroid.api.IMapController;
 
 import org.osmdroid.bonuspack.kml.KmlDocument;
@@ -48,6 +55,7 @@ import org.osmdroid.events.ZoomEvent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.FolderOverlay;
 import org.osmdroid.views.overlay.ItemizedIconOverlay;
@@ -79,6 +87,9 @@ public class MapHelper implements SensorEventListener {
     private BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
     private LocationItems locationItems;
     final boolean[] areMarkersVisible = {false, false, false, false, false, false, false};
+    private ObjectAnimator compassAnimator;
+    private float currentCompassRotation = 0.0f;
+    boolean[] orientateMap = {false};
 
     private SensorManager sensorManager;
     private Sensor magnetometerSensor;
@@ -131,6 +142,7 @@ public class MapHelper implements SensorEventListener {
         marker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
+                orientateMap[0] = false;
                 map.getController().animateTo(marker.getPosition(), 16.8, 2000L);
 
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -317,6 +329,8 @@ public class MapHelper implements SensorEventListener {
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
             mapController.animateTo(myLocationGeoPoint, 18.0, 2000L);
+            if (!orientateMap[0]) orientateMap[0] = true;
+            else animateMapOrientation(0.0f);
         });
     }
 
@@ -348,6 +362,7 @@ public class MapHelper implements SensorEventListener {
                 areMarkersVisible[4] = areMarkersVisible[5] = areMarkersVisible[6] = false;
                 clearLines();
                 resetButtonStates();
+                orientateMap[0] = false;
                 map.getOverlays().remove(myLocation);
                 map.getOverlays().add(myLocation);
                 map.invalidate();
@@ -355,6 +370,7 @@ public class MapHelper implements SensorEventListener {
             }
             @Override
             public boolean longPressHelper(GeoPoint p) {
+                orientateMap[0] = false;
                 return false;
             }
         };
@@ -367,6 +383,7 @@ public class MapHelper implements SensorEventListener {
                 if (event.getAction() == MotionEvent.ACTION_MOVE) {
                     if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED)
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    orientateMap[0] = false;
                 }
                 return false;
             }
@@ -389,16 +406,31 @@ public class MapHelper implements SensorEventListener {
         ImageButton expandMapView = ((MainActivity)context).findViewById(R.id.expand_map_button);
         expandMapView.setOnClickListener((view) -> {
             mapController.animateTo(new GeoPoint(47.215606, 27.795), 13.8, 2000L);
-            map.setMapOrientation(0.0f);
+            orientateMap[0] = false;
+            animateMapOrientation(0.0f);
         });
     }
 
-    protected void initializeCompass(){
-        compassImageButton = ((MainActivity)context).findViewById(R.id.compass);
-
-        compassImageButton.setOnClickListener((view) -> {
-            map.setMapOrientation(0.0f);
+    private void animateMapOrientation(float newOrientation) {
+        ValueAnimator orientationAnimator = ValueAnimator.ofFloat(map.getMapOrientation(), 0.0f);
+        orientationAnimator.setDuration(2000);
+        orientationAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float interpolatedOrientation = (float) valueAnimator.getAnimatedValue();
+                map.setMapOrientation(interpolatedOrientation);
+            }
         });
+        orientationAnimator.start();
+    }
+
+    protected void initializeCompass() {
+        compassImageButton = ((MainActivity) context).findViewById(R.id.compass);
+
+        compassAnimator = ObjectAnimator.ofFloat(compassImageButton, "rotation", 0f, 360f);
+        compassAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        compassAnimator.setInterpolator(new LinearInterpolator());
+        compassAnimator.setDuration(1000);
 
         if (magnetometerSensor != null) {
             sensorManager.registerListener(this, magnetometerSensor, SensorManager.SENSOR_DELAY_GAME);
@@ -423,7 +455,12 @@ public class MapHelper implements SensorEventListener {
                 SensorManager.getOrientation(R, orientation);
 
                 float azimuth = (float) Math.toDegrees(orientation[0]);
-                compassImageButton.setRotation(-azimuth);
+                if (compassAnimator.isRunning()) {
+                    compassAnimator.cancel();
+                }
+                compassAnimator.setFloatValues(currentCompassRotation, -azimuth);
+                compassAnimator.start();
+                currentCompassRotation = -azimuth;
             }
         }
     }
