@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        android:background="#7abee3">
+        android:background="@color/light_blue">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/title_layout"
@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Card Description"
-                android:textSize="16sp"
+                android:textSize="16.5sp"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

@@ -41,6 +41,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
         holder.cardDesc.setText(cards.getCardDesc());
         holder.markerImage.setBackgroundResource(cards.getMarkerId());
         holder.numberImage.setBackgroundResource(cards.getNumberId());
+        holder.cardDesc.setMovementMethod(LinkMovementMethod.getInstance());
 
         boolean isExpandable = cardsList.get(position).isExpandable();
         holder.expandableLayout.setVisibility(isExpandable ? View.VISIBLE : View.GONE);
