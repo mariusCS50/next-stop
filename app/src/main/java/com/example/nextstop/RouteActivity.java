@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -38,27 +39,26 @@ public class RouteActivity extends AppCompatActivity {
             }
         });
 
-
         recyclerView = findViewById(R.id.recyclerView);
-        
-        initData();
+        initListData();
         setRecycleView();
     }
 
     private void setRecycleView() {
-        CardsAdapter cardsAdapter = new CardsAdapter(cardsList);
+        CardsAdapter cardsAdapter = new CardsAdapter(cardsList, recyclerView);
         recyclerView.setAdapter(cardsAdapter);
         recyclerView.setHasFixedSize(true);
+
     }
 
-    private void initData() {
+    private void initListData() {
         cardsList = new ArrayList<>();
-        cardsList.add(new Cards("Traseul Rutei Nr. 1", "Descriere ruta 1"));
-        cardsList.add(new Cards("Traseul Rutei Nr. 2", "Descriere ruta 1"));
-        cardsList.add(new Cards("Traseul Rutei Nr. 3", "Descriere ruta 1"));
-        cardsList.add(new Cards("Traseul Rutei Nr. 4", "Descriere ruta 1"));
-        cardsList.add(new Cards("Traseul Rutei Nr. 5", "Descriere ruta 1"));
-        cardsList.add(new Cards("Traseul Rutei Nr. 6", "Descriere ruta 1"));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_1_description)), R.drawable.station1, R.drawable.route_1_pressed));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_2_description)), R.drawable.station2, R.drawable.route_2_pressed));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_3_description)), R.drawable.station3, R.drawable.route_3_pressed));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_4_description)), R.drawable.station4, R.drawable.route_4_pressed));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_5_description)), R.drawable.station5, R.drawable.route_5_pressed));
+        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_6_description)), R.drawable.station6, R.drawable.route_6_pressed));
     }
 
     @Override

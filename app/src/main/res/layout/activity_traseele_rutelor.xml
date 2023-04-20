@@ -30,8 +30,11 @@
             android:text="Traseele Rutelor din or. Ungheni"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
             android:textColor="@android:color/white"
-            android:textSize="15sp"
-            android:layout_margin="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"/>
 
         <ImageButton
             android:id="@+id/back_button"
@@ -40,7 +43,7 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:layout_gravity="end"
-            android:background="@drawable/back_to_main_activity_button"
+            android:background="@drawable/close_activity"
             android:layout_margin="5dp"/>
 
     </androidx.appcompat.widget.Toolbar>
