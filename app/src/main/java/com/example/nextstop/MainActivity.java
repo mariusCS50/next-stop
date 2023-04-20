@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         locationListener = new MyLocationListener();
         mapHelper = new MapHelper(this, findViewById(R.id.map));
-        mapHelper.initializeDefaultMap();
+        mapHelper.initDefaultMap();
         mapHelper.addStations();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION);
         } else {
-            mapHelper.initializeMyLocationOnMap();
+            mapHelper.initMyLocation();
         }
 
         Button btnNext = findViewById(R.id.trasee);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                         && grantResults[1] == PackageManager.PERMISSION_GRANTED
                         && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
-                    mapHelper.initializeMyLocationOnMap();
+                    mapHelper.initMyLocation();
                 } else {
                     showPermissionAlertDialog();
                 }

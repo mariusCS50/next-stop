@@ -1,13 +1,10 @@
 package com.example.nextstop;
 
-import static android.content.Context.SENSOR_SERVICE;
-
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,64 +12,36 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.Image;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
-import com.example.nextstop.PublicTransportRoutes.Route;
-import com.example.nextstop.PublicTransportRoutes.RouteGeometry;
 import com.example.nextstop.PublicTransportRoutes.RouteItems;
 import com.example.nextstop.StationModels.Location;
 import com.example.nextstop.StationModels.LocationItems;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
 
-import org.osmdroid.api.IGeoPoint;
 import org.osmdroid.api.IMapController;
 
-import org.osmdroid.bonuspack.kml.KmlDocument;
-import org.osmdroid.bonuspack.routing.OSRMRoadManager;
-import org.osmdroid.bonuspack.routing.Road;
-import org.osmdroid.bonuspack.routing.RoadManager;
-import org.osmdroid.events.DelayedMapListener;
 import org.osmdroid.events.MapEventsReceiver;
-import org.osmdroid.events.MapListener;
-import org.osmdroid.events.ScrollEvent;
-import org.osmdroid.events.ZoomEvent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.util.BoundingBox;
 import org.osmdroid.util.GeoPoint;
-import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.FolderOverlay;
-import org.osmdroid.views.overlay.ItemizedIconOverlay;
-import org.osmdroid.views.overlay.ItemizedOverlayWithFocus;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.Overlay;
-import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.Polyline;
-import org.osmdroid.views.overlay.ScaleBarOverlay;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -313,7 +282,7 @@ public class MapHelper implements SensorEventListener {
         if (!areMarkersVisible[6]) route6.setBackgroundResource(R.drawable.route_6_enabled);
     }
 
-    protected void initializeMyLocationOnMap() {
+    protected void initMyLocation() {
         myLocation = new MyLocationNewOverlay(map);
 
         Drawable customArrowDrawable = context.getResources().getDrawable(R.drawable.navigation_arrow);
@@ -335,7 +304,7 @@ public class MapHelper implements SensorEventListener {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    protected void initializeDefaultMap() {
+    protected void initDefaultMap() {
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(false);
 
@@ -343,9 +312,9 @@ public class MapHelper implements SensorEventListener {
         mapController.setCenter(new GeoPoint(47.206602, 27.800557));
         mapController.setZoom(18.0);
 
-        initializeRotationGestures();
-        initializeButtons();
-        initializeCompass();
+        initRotationGestures();
+        initButtons();
+        initCompass();
 
         myLocationButton = ((MainActivity)context).findViewById(R.id.back_to_my_location);
 
@@ -390,14 +359,14 @@ public class MapHelper implements SensorEventListener {
         });
     }
 
-    protected void initializeRotationGestures(){
+    protected void initRotationGestures(){
         RotationGestureOverlay rotationGesture = new RotationGestureOverlay(map);
         rotationGesture.setEnabled(true);
         map.setMultiTouchControls(true);
         map.getOverlays().add(rotationGesture);
     }
 
-    protected void initializeButtons(){
+    protected void initButtons(){
         ImageButton zoomInButton = ((MainActivity)context).findViewById(R.id.zoom_in_button);
         ImageButton zoomOutButton = ((MainActivity)context).findViewById(R.id.zoom_out_button);
         zoomInButton.setOnClickListener((view) -> map.getController().zoomIn());
@@ -424,7 +393,7 @@ public class MapHelper implements SensorEventListener {
         orientationAnimator.start();
     }
 
-    protected void initializeCompass() {
+    protected void initCompass() {
         compassImageButton = ((MainActivity) context).findViewById(R.id.compass);
 
         compassAnimator = ObjectAnimator.ofFloat(compassImageButton, "rotation", 0f, 360f);
