@@ -1,5 +1,10 @@
 {
   "type": "FeatureCollection",
+  "copyright": {
+    "app_name": "NextStop",
+    "year": 2023,
+    "owner": "Gaibu Marius. Ganea Corneliu . All rights reserved."
+  },
   "crs": {
     "type": "name",
     "properties": {

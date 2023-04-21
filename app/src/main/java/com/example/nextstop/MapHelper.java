@@ -45,7 +45,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MapHelper implements SensorEventListener {
     private final Context context;
     private final MapView map;
@@ -70,9 +69,6 @@ public class MapHelper implements SensorEventListener {
     public MapHelper(Context context, MapView map) {
         this.context = context;
         this.map = map;
-        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     protected String readJson(String fileName) {
@@ -86,7 +82,6 @@ public class MapHelper implements SensorEventListener {
             return null;
         }
     }
-
 
     protected void initStations() {
         String locationsJson = readJson("stations_locations.json");
@@ -339,7 +334,6 @@ public class MapHelper implements SensorEventListener {
             }
             @Override
             public boolean longPressHelper(GeoPoint p) {
-                orientateMap[0] = false;
                 return false;
             }
         };
@@ -380,19 +374,6 @@ public class MapHelper implements SensorEventListener {
         });
     }
 
-    private void animateMapOrientation(float newOrientation) {
-        ValueAnimator orientationAnimator = ValueAnimator.ofFloat(map.getMapOrientation(), 0.0f);
-        orientationAnimator.setDuration(2000);
-        orientationAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float interpolatedOrientation = (float) valueAnimator.getAnimatedValue();
-                map.setMapOrientation(interpolatedOrientation);
-            }
-        });
-        orientationAnimator.start();
-    }
-
     protected void initCompass() {
         compassImageButton = ((MapActivity) context).findViewById(R.id.compass);
 
@@ -400,6 +381,10 @@ public class MapHelper implements SensorEventListener {
         compassAnimator.setRepeatCount(ValueAnimator.INFINITE);
         compassAnimator.setInterpolator(new LinearInterpolator());
         compassAnimator.setDuration(1000);
+
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        magnetometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         if (magnetometerSensor != null) {
             sensorManager.registerListener(this, magnetometerSensor, SensorManager.SENSOR_DELAY_GAME);
@@ -439,6 +424,18 @@ public class MapHelper implements SensorEventListener {
 
     }
 
+    private void animateMapOrientation(float newOrientation) {
+        ValueAnimator orientationAnimator = ValueAnimator.ofFloat(map.getMapOrientation(), 0.0f);
+        orientationAnimator.setDuration(2000);
+        orientationAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float interpolatedOrientation = (float) valueAnimator.getAnimatedValue();
+                map.setMapOrientation(interpolatedOrientation);
+            }
+        });
+        orientationAnimator.start();
+    }
 
     public void onPause() {
         map.onPause();
