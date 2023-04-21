@@ -300,6 +300,7 @@ public class MapHelper implements SensorEventListener {
 
     @SuppressLint("ClickableViewAccessibility")
     protected void initDefaultMap() {
+
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setBuiltInZoomControls(false);
 

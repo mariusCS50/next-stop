@@ -36,7 +36,7 @@
             android:id="@+id/trasee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/route_activity_button_shape"
+            android:background="@drawable/route_activity_button_ripple"
             android:text="Traseele Rutelor"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -59,8 +59,8 @@
             android:layout_height="48dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            app:srcCompat="@drawable/expand_map"
-            android:background="@drawable/expand_button_shape"/>
+            app:srcCompat="@drawable/expand_map_button"
+            android:background="@drawable/expand_map_button_ripple"/>
 
         <ImageButton
             android:id="@+id/compass"
@@ -87,16 +87,15 @@
             android:id="@+id/zoom_in_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:srcCompat="@drawable/sharp_add_black_36"
-            android:background="@drawable/zoom_in_button_shape"/>
+            app:srcCompat="@drawable/zoom_in_button"
+            android:background="@drawable/zoom_in_button_ripple"/>
 
         <ImageButton
             android:id="@+id/zoom_out_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:srcCompat="@drawable/sharp_remove_black_36"
-            android:background="@drawable/zoom_out_button_shape"/>
-
+            app:srcCompat="@drawable/zoom_out_button"
+            android:background="@drawable/zoom_out_button_ripple"/>
         <ImageButton
             android:id="@+id/back_to_my_location"
             android:layout_width="48dp"
@@ -105,8 +104,8 @@
             android:adjustViewBounds="true"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
-            app:srcCompat="@drawable/center_map"
-            android:background="@android:color/transparent"/>
+            app:srcCompat="@drawable/center_map_button"
+            android:background="@drawable/center_map_button_ripple"/>
     </LinearLayout>
 
     <LinearLayout
