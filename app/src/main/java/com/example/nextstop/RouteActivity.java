@@ -11,6 +11,9 @@ import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.nextstop.CardsRecycleView.Cards;
+import com.example.nextstop.CardsRecycleView.CardsAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

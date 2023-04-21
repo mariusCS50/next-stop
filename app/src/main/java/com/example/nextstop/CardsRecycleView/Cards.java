@@ -1,4 +1,4 @@
-package com.example.nextstop;
+package com.example.nextstop.CardsRecycleView;
 
 import android.graphics.drawable.Drawable;
 import android.text.Spanned;

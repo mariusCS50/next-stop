@@ -1,14 +1,4 @@
 <resources>
-    <string name="app_name">NextStop</string>
-    <string name="zoom_in">+</string>
-    <string name="zoom_out">-</string>
-    <string name="map_description">This is the map implemented with the OSMDroid API</string>
-    <string name="zoom_in_btn_description">Zoom-In</string>
-    <string name="zoom_out_btn_description">Zoom-Out</string>
-    <string name="my_location_btn_description">My current location</string>\
-    <string name="settings_btn_description">Settings</string>
-    <string name="compass_btn_description">Compass</string>
-    <string name="filter_btn_description">Filter the Stations based on the Transport</string>
     <string name="route_1_description"><![CDATA[<i><b>Administrator</i></b> – S.R.L. „NIZOR-LUX”, lungime 13.7 km, activează de la ora 06:00 pînă la ora 21:00: <br><br><i><b>Punct de pornire:</i></b>  f-ca „Biovit” – str. Şt. cel Mare – str. Naţională – str. V. Alecsandri – str. Romană – str. Decebal – str. A. Boico – str. I. Creangă – str. Plămădeală (Direcția Situațiilor Excepționale a IGSU);<br><br><i><b>Retur:</i></b> str. Plămădeală – str. I. Creangă – str. Bernardazzi – str. B.P.Haşdeu – str. Naţională – str. Şt. cel Mare – f-ca “Biovit”– staţie terminus. <br><br><i>Puteți accesa harta interactivă a traseului acestei rute</i> <a href="https://www.plotaroute.com/route/793755?units=km">aici</a>.]]></string>
     <string name="route_2_description"><![CDATA[<i><b>Administrator</i></b> – Î.I. „Andrei Cozmilici”, lungime 13.5 km, activează de la ora 06:00 până la ora 21:00: <br><br><i><b>Punct de pornire:</i></b>  f-ca “Biovit” – str. Şt. cel Mare – str. Naţională – str. V. Alecsandri – str. Romană – str. B. P. Haşdeu – str. Bernardazzi – str. I. Creangă – str. Gh.Crestiuc – Decebal – str. Naţională – str. Şt. cel Mare – f-ca ,,Biovit” – staţie terminus. <br><br><i>Puteți accesa harta interactivă a traseului acestei rute</i> <a href="https://www.plotaroute.com/route/793761?units=km">aici</a>.]]></string>
     <string name="route_3_description"><![CDATA[<i><b>Administrator</i></b> – S.R.L. ,,RINCOR-PRIM” (Ghenadi Mitriuc), lungime 13.0 km, activează de la ora 06:00 până la ora 21:00: <br><br><i><b>Punct de pornire:</i></b>  Cheia orașului, intrare de pe traseul G90 – str. P. Rareş – intersecţie cu str. Cetireni – str. Şt. cel Mare – str. Naţională – str. V. Alecsandri – str. Romană – str. Decebal – str. Gh. Crestiuc – str. I. Creangă – str. Bernardazzi – str. B.P.Haşdeu – str. Naţională – str. Şt. cel Mare –str. P. Rareş – Cheia orașului, intrare de pe traseul G90. <br><br><i>Puteți accesa harta interactivă a traseului acestei rute</i> <a href="https://www.plotaroute.com/route/793770?units=km">aici</a>.]]></string>

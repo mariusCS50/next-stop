@@ -2,10 +2,10 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/AppTheme"
+    android:theme="@style/MyAppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MapActivity">
 
     <org.osmdroid.views.MapView
         android:id="@+id/map"
@@ -13,8 +13,7 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:enabled="true"
-        android:focusable="true"
-        android:contentDescription="@string/map_description" >
+        android:focusable="true">
 
     </org.osmdroid.views.MapView>
 
@@ -89,7 +88,6 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:srcCompat="@drawable/sharp_add_black_36"
-            android:contentDescription="@string/zoom_in_btn_description"
             android:background="@drawable/zoom_in_button_shape"/>
 
         <ImageButton
@@ -97,7 +95,6 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:srcCompat="@drawable/sharp_remove_black_36"
-            android:contentDescription="@string/zoom_out_btn_description"
             android:background="@drawable/zoom_out_button_shape"/>
 
         <ImageButton
@@ -108,7 +105,6 @@
             android:adjustViewBounds="true"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="40dp"
-            android:contentDescription="@string/my_location_btn_description"
             app:srcCompat="@drawable/center_map"
             android:background="@android:color/transparent"/>
     </LinearLayout>
