@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -44,6 +45,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MapHelper implements SensorEventListener {
     private final Context context;
@@ -58,6 +61,8 @@ public class MapHelper implements SensorEventListener {
     private ObjectAnimator compassAnimator;
     private float currentCompassRotation = 0.0f;
     boolean[] orientateMap = {false};
+    private Timer timer;
+    private TimerTask timerTask;
 
     private SensorManager sensorManager;
     private Sensor magnetometerSensor;
@@ -226,6 +231,7 @@ public class MapHelper implements SensorEventListener {
         polyline.setPoints(geoPoints);
 
         map.getOverlayManager().add(polyline);
+
         map.invalidate();
     }
 
@@ -289,6 +295,18 @@ public class MapHelper implements SensorEventListener {
         myLocation.enableFollowLocation();
         map.getOverlays().add(myLocation);
         map.invalidate();
+
+        timer = new Timer();
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                map.getOverlays().remove(myLocation);
+                map.getOverlays().add(myLocation);
+                map.invalidate();
+            }
+        };
+
+        timer.schedule(timerTask, 0, 2000);
 
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
