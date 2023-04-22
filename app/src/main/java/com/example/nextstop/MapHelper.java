@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
@@ -231,7 +232,6 @@ public class MapHelper implements SensorEventListener {
         polyline.setPoints(geoPoints);
 
         map.getOverlayManager().add(polyline);
-
         map.invalidate();
     }
 
@@ -306,7 +306,7 @@ public class MapHelper implements SensorEventListener {
             }
         };
 
-        timer.schedule(timerTask, 0, 2000);
+        timer.schedule(timerTask, 0, 200);
 
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
@@ -343,6 +343,7 @@ public class MapHelper implements SensorEventListener {
                 areMarkersVisible[1] = areMarkersVisible[2] = areMarkersVisible[3] = false;
                 areMarkersVisible[4] = areMarkersVisible[5] = areMarkersVisible[6] = false;
                 clearLines();
+                clearMarkers();
                 initStations();
                 resetButtonStates();
                 orientateMap[0] = false;

@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -29,7 +30,6 @@ public class MapActivity extends AppCompatActivity {
 
     private MapHelper mapHelper;
     private final int REQUEST_PERMISSION = 2;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
