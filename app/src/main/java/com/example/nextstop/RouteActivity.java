@@ -56,12 +56,12 @@ public class RouteActivity extends AppCompatActivity {
 
     private void initListData() {
         cardsList = new ArrayList<>();
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_1_description)), R.drawable.station1, R.drawable.route_1_pressed));
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_2_description)), R.drawable.station2, R.drawable.route_2_pressed));
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_3_description)), R.drawable.station3, R.drawable.route_3_pressed));
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_4_description)), R.drawable.station4, R.drawable.route_4_pressed));
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_5_description)), R.drawable.station5, R.drawable.route_5_pressed));
-        cardsList.add(new Cards("Traseul Rutei Nr.", Html.fromHtml(getString(R.string.route_6_description)), R.drawable.station6, R.drawable.route_6_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_1_description)),"https://www.plotaroute.com/route/793755?units=km", R.drawable.station1, R.drawable.route_1_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_2_description)),"https://www.plotaroute.com/route/793761?units=km", R.drawable.station2, R.drawable.route_2_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_3_description)),"https://www.plotaroute.com/route/793770?units=km", R.drawable.station3, R.drawable.route_3_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_4_description)),"https://www.plotaroute.com/route/793774?units=km", R.drawable.station4, R.drawable.route_4_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_5_description)),"https://www.plotaroute.com/route/793782?units=km", R.drawable.station5, R.drawable.route_5_pressed));
+        cardsList.add(new Cards(Html.fromHtml(getString(R.string.route_6_description)),"https://www.plotaroute.com/route/793801?units=km", R.drawable.station6, R.drawable.route_6_pressed));
     }
 
     @Override

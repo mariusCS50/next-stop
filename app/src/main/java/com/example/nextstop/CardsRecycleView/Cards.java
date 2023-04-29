@@ -6,25 +6,17 @@ import android.widget.Space;
 
 public class Cards {
 
-    private String cardTitle;
+    private String cardLink;
     private Spanned cardDesc;
     private boolean expandable;
     int markerId, numberId;
 
-    public Cards(String cardTitle, Spanned cardDesc, int markerId, int numberId) {
-        this.cardTitle = cardTitle;
+    public Cards(Spanned cardDesc, String cardLink, int markerId, int numberId) {
         this.cardDesc = cardDesc;
+        this.cardLink = cardLink;
         this.expandable = false;
         this.markerId = markerId;
         this.numberId = numberId;
-    }
-
-    public String getCardTitle() {
-        return cardTitle;
-    }
-
-    public void setCardTitle(String cardTitle) {
-        this.cardTitle = cardTitle;
     }
 
     public Spanned getCardDesc() {
@@ -33,6 +25,14 @@ public class Cards {
 
     public void setCardDesc(Spanned cardDesc) {
         this.cardDesc = cardDesc;
+    }
+
+    public String getCardLink() {
+        return cardLink;
+    }
+
+    public void setCardLink(String cardLink) {
+        this.cardLink = cardLink;
     }
 
     public boolean isExpandable() {
@@ -66,8 +66,8 @@ public class Cards {
     @Override
     public String toString() {
         return "Cards{" +
-                "cardTitle='" + cardTitle + '\'' +
-                ", cardDesc='" + cardDesc + '\'' +
+                "cardDesc='" + cardDesc + '\'' +
+                ", cardLink='" + cardLink + '\'' +
                 '}';
     }
 }

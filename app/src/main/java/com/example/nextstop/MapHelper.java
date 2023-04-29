@@ -14,6 +14,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -40,6 +42,8 @@ import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
+import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.io.IOException;
@@ -291,25 +295,16 @@ public class MapHelper implements SensorEventListener {
         Bitmap bitmapArrow = bitmapDrawable.getBitmap();
 
         myLocation.setDirectionIcon(bitmapArrow);
-        myLocation.enableMyLocation();
+        GpsMyLocationProvider locationProvider = new GpsMyLocationProvider(context);
+        myLocation.enableMyLocation(locationProvider);
         myLocation.enableFollowLocation();
+        locationProvider.startLocationProvider(null);
         map.getOverlays().add(myLocation);
         map.invalidate();
 
-        timer = new Timer();
-        timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                map.getOverlays().remove(myLocation);
-                map.getOverlays().add(myLocation);
-                map.invalidate();
-            }
-        };
-
-        timer.schedule(timerTask, 0, 200);
-
         myLocationButton.setOnClickListener(v -> {
             GeoPoint myLocationGeoPoint = myLocation.getMyLocation();
+            myLocation.enableFollowLocation();
             mapController.animateTo(myLocationGeoPoint, 18.0, 2000L);
             if (!orientateMap[0]) orientateMap[0] = true;
             else animateMapOrientation(0.0f);
@@ -388,7 +383,14 @@ public class MapHelper implements SensorEventListener {
 
         ImageButton expandMapView = ((MapActivity)context).findViewById(R.id.expand_map_button);
         expandMapView.setOnClickListener((view) -> {
-            mapController.animateTo(new GeoPoint(47.215606, 27.795), 13.8, 2000L);
+            myLocation.disableFollowLocation();
+
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((MapActivity)context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int screenHeight = displayMetrics.heightPixels;
+            double diff = screenHeight - 1920;
+            double zoomLevel = 14.4 + diff/1000;
+            mapController.animateTo(new GeoPoint(47.215606, 27.795), zoomLevel, 2000L);
             orientateMap[0] = false;
             animateMapOrientation(0.0f);
         });

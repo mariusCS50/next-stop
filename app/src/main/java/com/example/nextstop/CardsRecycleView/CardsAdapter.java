@@ -38,8 +38,8 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
     public void onBindViewHolder(@NonNull CardsViewHolder holder, int position) {
 
         Cards cards = cardsList.get(position);
-        holder.cardTitle.setText(cards.getCardTitle());
         holder.cardDesc.setText(cards.getCardDesc());
+        holder.cardLink.setText(cards.getCardLink());
         holder.markerImage.setBackgroundResource(cards.getMarkerId());
         holder.numberImage.setBackgroundResource(cards.getNumberId());
         holder.cardDesc.setMovementMethod(LinkMovementMethod.getInstance());
@@ -55,7 +55,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 
     public class CardsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView cardTitle, cardDesc;
+        TextView cardDesc, cardLink;
         ImageView markerImage, numberImage;
         LinearLayout cardLayout, expandableLayout;
         ConstraintLayout cardTitleLayout;
@@ -63,8 +63,8 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
         public CardsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            cardTitle = itemView.findViewById(R.id.card_title);
             cardDesc = itemView.findViewById(R.id.card_desc);
+            cardLink = itemView.findViewById(R.id.card_link);
             markerImage = itemView.findViewById(R.id.markerView);
             numberImage = itemView.findViewById(R.id.numberView);
 
