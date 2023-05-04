@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
@@ -50,8 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:orientation="vertical"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_margin="10dp">
 
         <ImageButton
             android:id="@+id/expand_map_button"
@@ -81,7 +80,7 @@
         android:layout_gravity="center|end"
         android:orientation="vertical"
         android:textAlignment="center"
-        android:layout_margin="5dp">
+        android:layout_margin="10dp">
 
         <ImageButton
             android:id="@+id/zoom_in_button"
